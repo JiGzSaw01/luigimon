@@ -1,0 +1,19 @@
+uuid: b34b829f-ee5b-4f34-b91f-2bffb23d6ad6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_captured_date
+    - node.type.diary
+id: node.diary.field_captured_date
+field_name: field_captured_date
+entity_type: node
+bundle: diary
+label: 'Captured Date'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

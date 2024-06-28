@@ -1,0 +1,19 @@
+uuid: 456a7682-80e3-4896-aaee-d1812c9a2f00
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pokestop
+    - node.type.diary
+id: node.diary.field_pokestop
+field_name: field_pokestop
+entity_type: node
+bundle: diary
+label: Pokestop
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long
