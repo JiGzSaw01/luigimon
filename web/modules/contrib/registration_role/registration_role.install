@@ -1,0 +1,48 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the registration role module.
+ */
+
+
+/**
+ * Assign 'administer registration roles' to roles having 'administer users'
+ */
+function registration_role_update_8007(&$sandbox) {
+  $roles = user_roles(FALSE, 'administer users');
+  foreach ($roles as $role) {
+    $roleId = $role->id();
+    user_role_grant_permissions($roleId,['administer registration roles']);
+  }
+}
+
+/**
+ * Remove the no selected roles from the configuration.
+ */
+function registration_role_update_8008(&$sandbox) {
+  $config = \Drupal::configFactory()->getEditable('registration_role.setting');
+  $role_to_select = $config->get('role_to_select');
+  // Remove all the unselect roles from the configuration, so the configuration
+  // and the schema match.
+  // more info https://www.drupal.org/node/3155688
+  $config->set('role_to_select', array_filter($role_to_select));
+  $config->save();
+}
+
+/**
+ * Remove non-selected roles if needed and warn of former security issue if so.
+ */
+function registration_role_update_10001() {
+  $config = \Drupal::configFactory()->getEditable('registration_role.setting');
+  $role_to_select = $config->get('role_to_select');
+  // Remove any unselected roles to ensure configuration and schema match.
+  $updated_roles = array_filter($role_to_select);
+  if ($role_to_select != $updated_roles) {
+    $config->set('role_to_select', $updated_roles);
+    $config->save();
+    $settings_form = \Drupal\Core\Url::fromRoute('registration_role.setting.form')->toString();
+    \Drupal::logger('registration_role')->alert("Review user accounts registered between 2023 July 11 and now for having additional roles you did not intend for them to have.  Your site missed or reverted an update to configuration in the version 2.0.0 release of Registration Role (in a 2020 August 17 commit, in case you have been using the development branch of this module) that removed non-selected roles. Without this configuration update, up until you re-saved <a href=':url'>the settings form</a> or until now, whichever came first, users who registered after the 2.0.0 update received <em>all</em> roles.", [':url' => $settings_form]);
+    \Drupal::messenger()->addWarning(t("Review user accounts registered between 2023 July 11 and now for having additional roles you did not intend for them to have.  Your site missed or reverted an update to configuration in the version 2.0.0 release of Registration Role (in a 2020 August 17 commit, in case you have been using the development branch of this module) that removed non-selected roles. Without this configuration update, up until you re-saved <a href=':url'>the settings form</a> or until now, whichever came first, users who registered after the 2.0.0 update received <em>all</em> roles.", [':url' => $settings_form]));
+  }
+}
