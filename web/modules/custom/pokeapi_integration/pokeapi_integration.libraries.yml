@@ -1,0 +1,3 @@
+pokeapi:
+  js:
+    js/pokeapi.js: {}

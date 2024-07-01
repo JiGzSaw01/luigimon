@@ -1,0 +1,7 @@
+pokeapi_integration.autocomplete:
+  path: '/pokeapi/autocomplete'
+  defaults:
+    _controller: '\Drupal\pokeapi_integration\Controller\PokeApiController::autocomplete'
+    _title: 'Pokémon Autocomplete'
+  requirements:
+    _permission: 'access content'

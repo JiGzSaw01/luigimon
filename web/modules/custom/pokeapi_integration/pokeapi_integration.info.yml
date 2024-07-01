@@ -1,0 +1,5 @@
+name: 'PokéAPI Integration'
+type: module
+description: 'A module to integrate PokéAPI with Drupal 10.'
+core_version_requirement: ^10
+package: Custom
