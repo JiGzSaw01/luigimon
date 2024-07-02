@@ -1,0 +1,22 @@
+uuid: 1d537a87-4cd7-4cf0-8e3f-bfc34ea1da05
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - luigimon
+_core:
+  default_config_hash: eYL19CLDyinGTWYQfBD1DswWzglEotE_kHnHx3AxTXM
+id: luigimon_powered
+theme: luigimon
+region: header
+weight: 0
+provider: null
+plugin: system_powered_by_block
+settings:
+  id: system_powered_by_block
+  label: 'Powered by Drupal'
+  label_display: '0'
+  provider: system
+visibility: {  }
