@@ -6,6 +6,7 @@ package: Custom
 core_version_requirement: ^10
 libraries:
   - luigimon/global
+  - luigimon/bootstrap
 regions:
   header: 'Header'
   primary_menu: 'Primary menu'
