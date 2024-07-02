@@ -1,0 +1,8 @@
+# Schema for the configuration files of the Luigimon theme.
+luigimon.settings:
+  type: theme_settings
+  label: 'Luigimon settings'
+  mapping:
+    example:
+      type: string
+      label: Example

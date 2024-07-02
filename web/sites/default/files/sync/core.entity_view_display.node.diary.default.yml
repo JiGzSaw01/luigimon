@@ -68,7 +68,7 @@ content:
     region: content
   field_pokemon_name:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -76,9 +76,9 @@ content:
     region: content
   field_pokemon_type:
     type: entity_reference_label
-    label: above
+    label: hidden
     settings:
-      link: true
+      link: false
     third_party_settings: {  }
     weight: 105
     region: content

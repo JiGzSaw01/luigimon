@@ -24,8 +24,8 @@ content:
     type: timestamp
     label: above
     settings:
-      date_format: medium
-      custom_date_format: ''
+      date_format: custom
+      custom_date_format: 'F d, Y h:i'
       timezone: ''
       tooltip:
         date_format: long
@@ -36,6 +36,7 @@ content:
         past_format: '@interval ago'
         granularity: 2
         refresh: 60
+        description: ''
     third_party_settings: {  }
     weight: 4
     region: content
@@ -61,17 +62,18 @@ content:
     region: content
   field_pokemon_name:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
     weight: 1
     region: content
   field_pokemon_type:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: above
     settings:
-      link: true
+      view_mode: pill
+      link: false
     third_party_settings: {  }
     weight: 2
     region: content

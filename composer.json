@@ -16,11 +16,13 @@
     ],
     "require": {
         "composer/installers": "^2.0",
+        "drupal/color_field": "^3.0",
         "drupal/core-composer-scaffold": "^10.3",
         "drupal/core-project-message": "^10.3",
         "drupal/core-recommended": "^10.3",
         "drupal/gtm": "^1.8",
-        "drupal/registration_role": "^2.0"
+        "drupal/registration_role": "^2.0",
+        "drupal/token": "^1.14"
     },
     "conflict": {
         "drupal/drupal": "*"

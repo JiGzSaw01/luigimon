@@ -9,7 +9,7 @@ id: node.diary.field_captured_date
 field_name: field_captured_date
 entity_type: node
 bundle: diary
-label: 'Captured Date'
+label: 'Capture Date'
 description: ''
 required: true
 translatable: false
