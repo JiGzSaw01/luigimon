@@ -25,23 +25,18 @@
 #}
 {%
   set classes = [
+    'pill',
     'taxonomy-term',
     'vocabulary-' ~ term.bundle|clean_class,
   ]
 %}
-<div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
-  {{ title_prefix }}
-  
-  <div class="content">
+<div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }} style="background-color:{{content.field_background_color.0}};color:{{content.field_text_color.0}}">  
     {% if name and not page %}
       {% if view_mode == 'pill' %}
-        <div style="background-color:{{content.field_background_color.0}};color:{{content.field_text_color.0}}">{{name}}</div>
+        {{name}}
       {% else %}
-        <h2><a href="{{ url }}">{{ name }}</a></h2>
+        <a href="{{ url }}">{{ name }}</a>
       {% endif %}
     {% endif %}
-
     {{ title_suffix }}
-    {# {{ content }} #}
-  </div>
 </div>
