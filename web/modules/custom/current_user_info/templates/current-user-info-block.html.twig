@@ -1,0 +1,8 @@
+<div>
+Welcome {{ name }}!
+{% if picture_uri.view_mode is defined %}
+{{ picture_uri }}
+{% else %} 
+default.img
+{% endif %}
+</div

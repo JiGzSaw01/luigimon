@@ -1,0 +1,13 @@
+<?php
+
+function current_user_info_theme($existing, $type, $theme, $path) {
+   return [
+    'current_user_info_block' => [
+      'variables' => [
+        'name' => '',
+        'picture_uri' => '',
+        'current_user' => '',
+     ],
+   ],
+];
+}

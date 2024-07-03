@@ -6,14 +6,15 @@ dependencies:
     - system.menu.main
   module:
     - system
+    - user
   theme:
     - luigimon
 _core:
   default_config_hash: KWAiziL39uEzmOJEql_wbUP2RtqGceL3WM2CfxhMelE
 id: luigimon_main_menu
 theme: luigimon
-region: primary_menu
-weight: 0
+region: secondary_menu
+weight: -7
 provider: null
 plugin: 'system_menu_block:main'
 settings:
@@ -24,4 +25,11 @@ settings:
   level: 1
   depth: 2
   expand_all_items: true
-visibility: {  }
+visibility:
+  user_role:
+    id: user_role
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'
+    roles:
+      authenticated: authenticated
