@@ -50,13 +50,10 @@ content:
     weight: 5
     region: content
   field_pokemon_image:
-    type: image
+    type: image_url
     label: above
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
+      image_style: pokemon_thumbnail
     third_party_settings: {  }
     weight: 0
     region: content
