@@ -12,7 +12,8 @@
                     label: item.label,
                     value: item.value,
                     type: item.type_ID,
-                    type_name: item.type_name
+                    type_name: item.type_name,
+                    img: item.img,
                   };
                 }));
               }
@@ -25,16 +26,28 @@
             var pokemonName = capitalize(valueParts);
             var pokemonType = ui.item.type;
             var pokemonTypeName = capitalize(ui.item.type_name);
+            var pokemonImage = ui.item.img
+            console.log(pokemonImage);
   
             // Display the selected Pokémon name and type in console
             console.log('Selected Pokémon:', pokemonName);
             console.log('Type:', pokemonType);
             console.log('TypeName:', pokemonTypeName);
   
-            // Set the input field value to the Pokémon name
+            // Set the input field value to the Pokémon name and type
             $('input[name="field_pokemon_name[0][value]"]').val(pokemonName);
             $('input[name="field_pokemon_type[0][target_id]"]').val(`${pokemonTypeName} (${pokemonType})`);
   
+            if (pokemonImage) {
+              
+              $('.image-preview__img-wrapper img').attr('src', pokemonImage);
+
+
+            } else {
+              // Optionally, handle the case where there's no image URL available
+              console.warn('No image URL found for selected Pokémon:', pokemonName);
+            }
+            
 
             function capitalize(s)
             {

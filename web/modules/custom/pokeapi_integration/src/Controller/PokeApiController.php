@@ -84,16 +84,17 @@ class PokeApiController extends ControllerBase {
           $terms = \Drupal::entityTypeManager()
             ->getStorage('taxonomy_term')
             ->loadByProperties([
-                    'vid' => 'type',
+                    'vid'  => 'type',
                     'name' => $type,
                 ]);
                 $term = reset(array_keys($terms));
 
           $matches[] = [
-            'value' => $pokemonName,
-            'label' => $pokemonName,
-            'type_ID' => $term,
+            'value'     => $pokemonName,
+            'label'     => $pokemonName,
+            'type_ID'   => $term,
             'type_name' => $type,
+            'img'       =>  $details['sprites']['other']['showdown']['front_default'],
           ];
         }
       }
