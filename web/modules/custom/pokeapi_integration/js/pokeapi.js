@@ -38,17 +38,54 @@
             $('input[name="field_pokemon_name[0][value]"]').val(pokemonName);
             $('input[name="field_pokemon_type[0][target_id]"]').val(`${pokemonTypeName} (${pokemonType})`);
   
-            if (pokemonImage) {
-              
-              $('.image-preview__img-wrapper img').attr('src', pokemonImage);
 
+            // Check if the image preview div already exists
+            var existingPreviewDiv = document.querySelector('.image-preview');
 
+            // If it exists, remove its contents
+            if (existingPreviewDiv) {
+                existingPreviewDiv.innerHTML = ''; // Clear existing content
             } else {
-              // Optionally, handle the case where there's no image URL available
-              console.warn('No image URL found for selected Pokémon:', pokemonName);
+                // Otherwise, create a new div for the image preview
+                existingPreviewDiv = document.createElement('div');
+                existingPreviewDiv.classList.add('image-preview'); // Add a class to style if needed
+            }
+
+            // Create a label element for "Image Preview"
+            var labelElement = document.createElement('label');
+            labelElement.textContent = 'Image Preview';
+            labelElement.style.fontWeight = 'bold'; 
+            labelElement.style.display = 'block';
+            labelElement.style.marginBottom = '11px';
+
+            // Append label element to image preview div
+            existingPreviewDiv.appendChild(labelElement);
+
+            // Create a new image element
+            var img = document.createElement('img');
+
+            // Set the source attribute of the image
+            img.src = pokemonImage; // Replace with your image path or data
+
+            // Optionally, set other attributes like alt text, width, height, etc.
+            img.alt = pokemonName;
+            img.width = 100; // width of image
+            img.height = 100; // height of image
+
+            // Append the image element to the image preview div
+            existingPreviewDiv.appendChild(img);
+
+            // Find the existing div where you want to append or replace the image preview
+            var targetDiv = document.querySelector('.details-wrapper'); // Replace with your existing div class or ID
+
+            // If the target div exists, append or replace the image preview content
+            if (targetDiv) {
+                // If the image preview div already existed, it has been updated; if not, it has been created
+                targetDiv.appendChild(existingPreviewDiv);
+            } else {
+                console.error('Target div not found.');
             }
             
-
             function capitalize(s)
             {
              return s[0].toUpperCase() + s.slice(1);
