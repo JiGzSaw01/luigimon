@@ -3,28 +3,16 @@ global:
   js:
     js/luigimon.js: {}
   css:
-    base:
-      css/base/elements.css: {}
-    component:
-      css/component/block.css: {}
-      css/component/breadcrumb.css: {}
-      css/component/field.css: {}
-      css/component/form.css: {}
-      css/component/header.css: {}
-      css/component/menu.css: {}
-      css/component/messages.css: {}
-      css/component/node.css: {}
-      css/component/sidebar.css: {}
-      css/component/table.css: {}
-      css/component/tabs.css: {}
-      css/component/buttons.css: {}
     layout:
       css/layout/layout.css: {}
     theme:
-      css/theme/print.css: { media: print }
+      css/fonts/fonts.css: {}
 bootstrap:
   css:
     theme:
       https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css: {type: external}
   js:
     https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js: {type: external}
+    https://code.jquery.com/jquery-3.2.1.slim.min.js: {type: external}
+    https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js: {type: external}
+    https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js: {type: external}

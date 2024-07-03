@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Pokemon';
+    src: url('Pokemon_Hollow.ttf');
+}
+
+@font-face {
+    font-family: 'Pokemon_solid';
+    src: url('Pokemon_Solid.ttf');
+}
