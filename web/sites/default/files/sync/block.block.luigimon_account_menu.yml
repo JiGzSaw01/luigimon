@@ -5,6 +5,7 @@ dependencies:
   config:
     - system.menu.account
   module:
+    - block_class
     - system
   theme:
     - luigimon
@@ -24,4 +25,8 @@ settings:
   level: 1
   depth: 1
   expand_all_items: false
-visibility: {  }
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: "/user/login\r\n/user/register\r\n/user/password"

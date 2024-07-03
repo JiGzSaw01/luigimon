@@ -14,6 +14,7 @@ dependencies:
     - node.type.diary
   module:
     - image
+    - tagify
 id: node.diary.default
 targetEntityType: node
 bundle: diary
@@ -49,14 +50,17 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_pokemon_type:
-    type: entity_reference_autocomplete
+    type: tagify_entity_reference_autocomplete_widget
     weight: 3
     region: content
     settings:
       match_operator: CONTAINS
       match_limit: 10
-      size: 60
       placeholder: ''
+      suggestions_dropdown: 1
+      show_entity_id: 0
+      show_info_label: 0
+      info_label: ''
     third_party_settings: {  }
   field_pokestop:
     type: string_textarea
