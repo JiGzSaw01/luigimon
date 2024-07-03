@@ -173,36 +173,36 @@ html body {
     margin-bottom: 10px;
 }
 
-.luigimon-page .content .table th,
-.luigimon-page .content .table td {
+.luigimon-page .page-content .table th,
+.luigimon-page .page-content .table td {
     color: #ffffff;
     background-color: #253341;
 }
 
-.luigimon-page .content .cards-container {
+.luigimon-page .page-content .cards-container {
     display: flex;
     flex-wrap: wrap;
 }
 
-.luigimon-page .content .cards-container>div {
+.luigimon-page .page-content .cards-container>div {
     flex: 1;
     min-width: 200px;
     padding: 8px;
 }
 
 @media only screen and (min-width: 600px) {
-    .luigimon-page .content .cards-container>div {
+    .luigimon-page .page-content .cards-container>div {
         min-width: 50%;
     }
 }
 
 @media only screen and (min-width: 990px) {
-    .luigimon-page .content .cards-container>div {
+    .luigimon-page .page-content .cards-container>div {
         min-width: 25%;
     }
 }
 
-.luigimon-page .content .card {
+.luigimon-page .page-content .card {
     padding: 20px 12px;
     background-color: #253341;
     color: #ffffff;
@@ -213,46 +213,46 @@ html body {
 }
 
 @media only screen and (min-width: 990px) {
-    .luigimon-page .content .card {
+    .luigimon-page .page-content .card {
         max-width: -moz-fit-content;
         max-width: fit-content;
     }
 }
 
-.luigimon-page .content .card .card-img-top {
+.luigimon-page .page-content .card .card-img-top {
     height: 95px;
     margin: 0 auto 12px;
 }
 
-.luigimon-page .content .card .card-body>div+div {
+.luigimon-page .page-content .card .card-body>div+div {
     margin-top: 10px;
 }
 
-.luigimon-page .content .card .card-id {
+.luigimon-page .page-content .card .card-id {
     color: #aab8c2;
     font-weight: 300;
 }
 
-.luigimon-page .content .card .card-label-value label {
+.luigimon-page .page-content .card .card-label-value label {
     font-size: 9px;
     color: #3d8bfd;
     font-weight: 700;
     display: block;
 }
 
-.luigimon-page .content .card .card-label-value span {
+.luigimon-page .page-content .card .card-label-value span {
     font-size: 12px;
     color: #aab8c2;
     font-weight: 500;
 }
 
-.luigimon-page .content .card.add-pokemon {
+.luigimon-page .page-content .card.add-pokemon {
     background-color: #ffffff;
     align-items: center;
     justify-content: center;
 }
 
-.luigimon-page .content .card.add-pokemon .btn {
+.luigimon-page .page-content .card.add-pokemon .btn {
     border-color: #17a2b8;
     color: #17a2b8;
     margin-top: 20px;
