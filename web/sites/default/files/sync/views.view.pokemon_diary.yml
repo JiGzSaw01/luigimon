@@ -212,7 +212,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: '<a class="use-ajax" data-dialog-type="modal" href="/node/add/diary">Add Pokemon</a>'
+            value: '<a class="use-ajax btn" data-dialog-type="modal" href="/node/add/diary">Add Pokemon</a>'
             format: full_html
           tokenize: false
       footer: {  }

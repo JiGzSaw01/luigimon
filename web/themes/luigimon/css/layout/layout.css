@@ -179,13 +179,16 @@ html body {
     background-color: #253341;
 }
 
+/* Cards container styles */
+
 .luigimon-page .page-content .cards-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .luigimon-page .page-content .cards-container>div {
-    flex: 1;
+    flex: 0 0 100%;
     min-width: 200px;
     padding: 8px;
 }
@@ -193,14 +196,18 @@ html body {
 @media only screen and (min-width: 600px) {
     .luigimon-page .page-content .cards-container>div {
         min-width: 50%;
+        flex: 0 0 50%;
     }
 }
 
 @media only screen and (min-width: 990px) {
     .luigimon-page .page-content .cards-container>div {
         min-width: 25%;
+        flex: 0 0 25%;
     }
 }
+
+/* Cards styles */
 
 .luigimon-page .page-content .card {
     padding: 20px 12px;
@@ -258,7 +265,7 @@ html body {
     margin-top: 20px;
 }
 
-.luigimon-page .pokemon-types {
+.luigimon-page .pokemon-types>div {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
@@ -273,6 +280,8 @@ html body {
     background-color: #aab8c2;
     color: #343a40;
     line-height: normal;
+    text-align: center;
+    width: fit-content;
 }
 
 .luigimon-page .pokemon-types .pill.poison {
