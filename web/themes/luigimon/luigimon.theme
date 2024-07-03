@@ -27,3 +27,46 @@ function luigimon_preprocess_page(array &$variables): void {
 function luigimon_preprocess_node(array &$variables): void {
 
 }
+
+/**
+ *
+ */
+function luigimon_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) : void {
+    $form['forgot_password_link'] = [
+        '#type' => 'link',
+        '#title' => t('Forgot password?'),
+        '#url' => \Drupal\Core\Url::fromRoute('user.pass'),
+    ];
+
+    $form['actions']['sign_up_link'] = [
+        '#type' => 'link',
+        '#title' => t('Sign up'),
+        '#url' => \Drupal\Core\Url::fromRoute('user.register'),
+        '#attributes' => [
+            'class' => [
+                'button',
+                'button-action',
+                'button--primary',
+            ],
+        ]
+    ];
+  
+}
+
+function luigimon_form_user_register_form_alter (&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) : void {
+    $form['actions']['submit']['#value'] = t('Sign up');
+
+    $form['actions']['log_in_link'] = [
+        '#type' => 'link',
+        '#title' => t('Back to Login'),
+        '#url' => \Drupal\Core\Url::fromRoute('user.login'),
+        '#attributes' => [
+            'class' => [
+                'button',
+                'button-action',
+                'button--primary',
+            ],
+        ],
+        '#weight' => 10,
+    ];
+}

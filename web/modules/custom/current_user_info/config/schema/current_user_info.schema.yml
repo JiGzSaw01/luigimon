@@ -1,0 +1,3 @@
+block.settings.current_user_info:
+  type: block_settings
+  label: 'Current User Info block'

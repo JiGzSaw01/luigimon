@@ -75,9 +75,10 @@ content:
     weight: 108
     region: content
   field_pokemon_type:
-    type: entity_reference_label
+    type: entity_reference_entity_view
     label: hidden
     settings:
+      view_mode: pill
       link: false
     third_party_settings: {  }
     weight: 105

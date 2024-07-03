@@ -14,4 +14,3 @@ permissions:
   - 'create diary content'
   - 'delete own diary content'
   - 'edit own diary content'
-  - 'view diary revisions'
