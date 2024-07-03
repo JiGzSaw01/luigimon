@@ -70,7 +70,7 @@
 			</div>
 		</header>
 	{% endif %}
-	<div class="page-content boxed-width h-100">
+	<div class="page-content boxed-width">
 		{{ page.pre_content }}
 
 		{{ page.highlighted }}
@@ -80,7 +80,7 @@
 			</div>
 		{% endif %}
 		{% if not logged_in %}
-			<div class="d-flex flex-column align-items-center justify-content-center h-100">
+			<div class="user-page d-flex flex-column align-items-center justify-content-center">
 				<h2 class="h1 logo-text-solid">Luigimon</h2>
 				{{ page.content }}
 			</div>
