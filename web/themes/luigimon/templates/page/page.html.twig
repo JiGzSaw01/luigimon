@@ -44,7 +44,7 @@
 		<h1>My Pokédex</h1>
 	</div>
 	{% if page.primary_menu %}
-		<header class="content-header clearfix p-0">
+		<header class="clearfix p-0">
 			<div class="menu-header">
 				<div class="boxed-width d-flex d-flex justify-content-between align-items-center">
 					{{ page.primary_menu }}
@@ -63,14 +63,14 @@
 			<div class="section-header">
 				<div class="boxed-width d-flex justify-content-between align-items-center">
 					<h2 class="h1 logo-text">My Pokédex</h2>
-					<button class="btn btn-share p-0" data-toggle="tooltip" data-placement="bottom" title="Copied link to clipboard">
+					<button class="btn btn-share p-1" data-toggle="tooltip" data-placement="bottom" title="Copied link to clipboard">
 						{{ source(directory ~ '/images/share.svg') }}
 					</button>
 				</div>
 			</div>
 		</header>
 	{% endif %}
-	<div class="page-content boxed-width h-100">
+	<div class="page-content boxed-width">
 		{{ page.pre_content }}
 
 		{{ page.highlighted }}
@@ -80,7 +80,7 @@
 			</div>
 		{% endif %}
 		{% if not logged_in %}
-			<div class="d-flex flex-column align-items-center justify-content-center h-100">
+			<div class="user-page d-flex flex-column align-items-center justify-content-center">
 				<h2 class="h1 logo-text-solid">Luigimon</h2>
 				{{ page.content }}
 			</div>

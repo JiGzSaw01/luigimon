@@ -75,7 +75,7 @@ display:
         options:
           offset: 0
           pagination_heading_level: h4
-          items_per_page: 9
+          items_per_page: 7
           total_pages: null
           id: 0
           tags:
@@ -212,7 +212,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: '<a class="use-ajax" data-dialog-type="modal" href="/node/add/diary">Add Pokemon</a>'
+            value: '<a class="use-ajax btn btn-secondary" data-dialog-type="modal" href="/node/add/diary">Add Pokemon</a>'
             format: full_html
           tokenize: false
       footer: {  }
