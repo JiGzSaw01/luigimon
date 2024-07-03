@@ -1,0 +1,353 @@
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.page-wrapper:has(.luigimon-page) {
+    height: 100%;
+}
+
+.boxed-width {
+    max-width: 824px;
+    margin: 0 16px;
+}
+
+@media only screen and (min-width: 990px) {
+    .boxed-width {
+        margin: 0 auto;
+    }
+}
+
+body,
+html {
+    height: 100%;
+}
+
+html body {
+    background-color: #cfe2ff;
+}
+
+.luigimon-page {
+    color: #ffffff;
+}
+
+/* Luigimon logo */
+.luigimon-page .logo-text {
+    font-family: 'Pokemon';
+    letter-spacing: 3px;
+}
+
+.luigimon-page .site-name,
+.luigimon-page .logo-text-solid {
+    font-family: 'Pokemon_solid';
+    letter-spacing: 3px;
+}
+
+.luigimon-page .site-name a {
+    color: white;
+    text-decoration: none;
+}
+
+/* Menu header */
+
+.luigimon-page .menu-header {
+    background-color: #0a58ca;
+    padding: 6px 0;
+}
+
+.luigimon-page .menu-header .region-primary-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.luigimon-page .menu-header .user-name {
+    font-size: 12px;
+    font-weight: 700;
+    margin-right: 5px;
+}
+
+.luigimon-page .menu-header .dropdown .dropdown-menu {
+    min-width: 300px;
+    padding: 6px 16px 16px;
+    border-radius: 4px;
+    border: 1px solid #dee2e6;
+    margin-top: 15px;
+}
+
+.luigimon-page .menu-header .dropdown .dropdown-menu:after {
+    content: " ";
+    position: absolute;
+    right: 2px;
+    top: -13px;
+    border-top: none;
+    border-right: 15px solid transparent;
+    border-left: 15px solid transparent;
+    border-bottom: 15px solid white;
+}
+
+.luigimon-page .menu-header .dropdown .dropdown-menu .menu,
+.luigimon-page .menu-header .dropdown .dropdown-menu .menu-item {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.luigimon-page .menu-header .dropdown .dropdown-menu .menu-item a {
+    background-color: #cff4fc;
+    color: #055160;
+    width: 100%;
+    font-size: 14px;
+    margin-top: 10px;
+    padding: 8px;
+    display: block;
+    text-align: center;
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 6px;
+}
+
+.luigimon-page .section-header {
+    background-color: #3d8bfd;
+    padding: 32px 0;
+}
+
+.luigimon-page .btn {
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 16px;
+    padding: 10px 16px;
+}
+
+.luigimon-page .btn.btn-secondary {
+    border: 1px solid #7749f8;
+    color: #7749f8;
+    background-color: #ffffff;
+}
+
+.luigimon-page .btn.dropdown-toggle {
+    padding: 5px;
+}
+
+.luigimon-page .btn.dropdown-toggle::after {
+    display: none;
+}
+
+.bg {
+    background-image: url('../../images/background.svg');
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Login/Sign up section */
+.luigimon-page .user-login-form {
+    /* display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center; */
+}
+
+.luigimon-page section h2 {
+    margin-bottom: 40px;
+}
+
+.luigimon-page section .btn {
+    text-transform: uppercase;
+    color: #2148c0;
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
+    font-weight: 600;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+.luigimon-page .content .table th,
+.luigimon-page .content .table td {
+    color: #ffffff;
+    background-color: #253341;
+}
+
+.luigimon-page .content .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.luigimon-page .content .cards-container>div {
+    flex: 1;
+    min-width: 200px;
+    padding: 8px;
+}
+
+@media only screen and (min-width: 600px) {
+    .luigimon-page .content .cards-container>div {
+        min-width: 50%;
+    }
+}
+
+@media only screen and (min-width: 990px) {
+    .luigimon-page .content .cards-container>div {
+        min-width: 25%;
+    }
+}
+
+.luigimon-page .content .card {
+    padding: 20px 12px;
+    background-color: #253341;
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 120%;
+    height: 100%;
+    border: 0;
+}
+
+@media only screen and (min-width: 990px) {
+    .luigimon-page .content .card {
+        max-width: -moz-fit-content;
+        max-width: fit-content;
+    }
+}
+
+.luigimon-page .content .card .card-img-top {
+    height: 95px;
+    margin: 0 auto 12px;
+}
+
+.luigimon-page .content .card .card-body>div+div {
+    margin-top: 10px;
+}
+
+.luigimon-page .content .card .card-id {
+    color: #aab8c2;
+    font-weight: 300;
+}
+
+.luigimon-page .content .card .card-label-value label {
+    font-size: 9px;
+    color: #3d8bfd;
+    font-weight: 700;
+    display: block;
+}
+
+.luigimon-page .content .card .card-label-value span {
+    font-size: 12px;
+    color: #aab8c2;
+    font-weight: 500;
+}
+
+.luigimon-page .content .card.add-pokemon {
+    background-color: #ffffff;
+    align-items: center;
+    justify-content: center;
+}
+
+.luigimon-page .content .card.add-pokemon .btn {
+    border-color: #17a2b8;
+    color: #17a2b8;
+    margin-top: 20px;
+}
+
+.luigimon-page .pokemon-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.luigimon-page .pokemon-types .pill {
+    text-transform: uppercase;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 12px;
+    background-color: #aab8c2;
+    color: #343a40;
+    line-height: normal;
+}
+
+.luigimon-page .pokemon-types .pill.poison {
+    color: white;
+    background-color: #7749f8;
+}
+
+.luigimon-page .pokemon-types .pill.steel {
+    color: white;
+    background-color: #6c757d;
+}
+
+.luigimon-page .pokemon-types .pill.fire {
+    color: white;
+    background-color: #dc3545;
+}
+
+.luigimon-page .pokemon-types .pill.grass {
+    color: white;
+    background-color: #28a745;
+}
+
+.luigimon-page .pokemon-types .pill.water {
+    color: white;
+    background-color: #17a2b8;
+}
+
+.luigimon-page .pokemon-types .pill.electric {
+    color: white;
+    background-color: #ffc107;
+}
+
+.luigimon-page .pokemon-types .pill.dark {
+    color: white;
+    background-color: #343a40;
+}
+
+.luigimon-page .pokemon-types .pill.psychic {
+    color: #5227cc;
+    background-color: #ebe5fc;
+}
+
+.luigimon-page .pokemon-types .pill.rock {
+    color: #212529;
+    background-color: #abb5be;
+}
+
+.luigimon-page .pokemon-types .pill.fighting {
+    color: #58151c;
+    background-color: #f8d7da;
+}
+
+.luigimon-page .pokemon-types .pill.bug {
+    color: #0a3622;
+    background-color: #d1e7dd;
+}
+
+.luigimon-page .pokemon-types .pill.flying {
+    color: #055160;
+    background-color: #cff4fc;
+}
+
+.luigimon-page .pokemon-types .pill.ground {
+    color: #664d03;
+    background-color: #fff3cd;
+}
+
+.luigimon-page .pokemon-types .pill.dragon {
+    color: #343a40;
+    background-color: #adb5bd;
+}
+
+.luigimon-page .pokemon-types .pill.ghost {
+    color: #495057;
+    background-color: #f8f9fa;
+}
+
+/*# sourceMappingURL=style.css.map */
