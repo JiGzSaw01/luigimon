@@ -42,8 +42,8 @@ class MyPokedexEventSubscriber implements EventSubscriberInterface
         $current_user = \Drupal::currentUser();
         if ($current_user->id()) {
           // Get the current context parameters.
-          $current_param = $route->getParameter('arg_0');
-          if (empty($current_param) && $current_param !== '0') {
+          $context_user_id = $route->getParameter('arg_0');
+          if (empty($context_user_id) && $context_user_id !== '0') {
             // Build the new URL with parameters.
             $new_url = $request->getBaseUrl() . $request->getPathInfo() . '/' . $current_user->id();
 
@@ -52,9 +52,18 @@ class MyPokedexEventSubscriber implements EventSubscriberInterface
 
             // Set the response and stop further processing.
             $event->setResponse($response);
+          } else {
+            $user = \Drupal\user\Entity\User::load($context_user_id);
+            // Check if the user entity exists and is active.
+            if ($user && $user->isActive()) {
+              
+            }
+            else {
+              $response = new RedirectResponse($request->getBaseUrl() . '/404', 301);
+              $event->setResponse($response);              
+            }
           }
-        }
-        else {
+        } else {
           $response = new RedirectResponse($request->getBaseUrl() . '/user/login', 301);
           $event->setResponse($response);
         }
