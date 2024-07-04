@@ -7,6 +7,10 @@ global:
       css/layout/layout.css: {}
     theme:
       css/fonts/fonts.css: {}
+  dependencies:
+  - core/drupal
+  - core/drupal.dialog.ajax
+  - core/once
 bootstrap:
   css:
     theme:
