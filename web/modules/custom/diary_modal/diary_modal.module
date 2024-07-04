@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Diary Modal module.
+ */
+
+function diary_modal_theme($existing, $type, $theme, $path)
+{
+    return [
+        'diary_modal_block' => [
+            'variables' => [
+                'link' => '',
+                'current_user_id' => '',
+            ],
+        ],
+    ];
+}
+
+function diary_modal_preprocess_views_view__pokemon_diary(&$variables)
+{
+    $customblock = \Drupal::service('plugin.manager.block')->createInstance('diary_modal_block', []);
+    if (isset($customblock) && !empty($customblock)) {
+        $variables['diaryModal'] = $customblock->build();
+    }
+}

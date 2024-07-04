@@ -65,14 +65,9 @@
 
 	<div class="view-content cards-container">
 		{{ rows }}
-		{% if header %}
-			<div>
-				<div class="card add-pokemon">
-					<img class="card-img-top mb-0" alt="Pokemon card image" src="{{ directory ~ '/images/default-pokemon-light.svg' }}" width="176px" height="95px"/>
-					{{ header }}
-				</div>
-			</div>
-		{% endif %}
+    {% if diaryModal %}
+      {{ diaryModal }}
+    {% endif %}
 	</div>
 
 	{% if pager %}
