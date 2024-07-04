@@ -39,11 +39,9 @@
  * @see html.html.twig
  */
 #}
-{{current_path}}
-{{show_bg}}
-<input type="hidden" value="" class="shareable-link"/>
 <main class="luigimon-page {{show_bg ? 'bg' : ''}}">
-	{% if page.primary_menu and page.header %}
+<input type="hidden" value="{{user.id}}" class="user-id"/>
+	{% if logged_in or is_pokemon_diary %}
 		<header class="clearfix p-0">
 			<div class="menu-header">
 				<div class="boxed-width d-flex d-flex justify-content-between align-items-center">

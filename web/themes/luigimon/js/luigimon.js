@@ -10,12 +10,13 @@
     attach(context, settings) {
       once('luigimon-page', 'body', context).forEach(
         function (element) {
-          console.log('It works!');
           var $temp = $("<input>");
           var $url = $(location).attr("href");
           $(".btn-share").click(function () {
+            var $userId = $(".luigimon-page .user-id").val();
             try {
               $("body").append($temp);
+              $url = $userId ? $url + "/" + $userId : $url;
               $temp.val($url).select();
               document.execCommand("copy");
               $temp.remove();
