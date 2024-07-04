@@ -80,7 +80,7 @@
 %}
 {{ attach_library('claro/classy.node') }}
 <article{{attributes.addClass(classes)}}>
-	<img class="card-img-top" alt="Pokemon card image" src="{{content.field_pokemon_image.0}}" onerror="this.onerror=null;this.src='{{ directory ~ '/images/default-pokemon.svg' }}';" width="176px" height="95px"/>
+	<img class="card-img-top" alt="Pokemon card image" src="{{content.field_pokemon_image.0}}" onerror="this.onerror=null;this.src='{{ file_url(directory ~ '/images/default-pokemon.svg') }}';" width="176px" height="95px"/>
 	<div class="card-body p-0">
 		{% if content.field_pokemon_id %}
 			<div class="card-id">{{content.field_pokemon_id}}</div>

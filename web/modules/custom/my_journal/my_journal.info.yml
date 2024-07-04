@@ -1,0 +1,5 @@
+name: 'My Journal'
+type: module
+description: 'Custom module for rendering My Journal in user homepage'
+package: Custom
+core_version_requirement: ^10 || ^11
