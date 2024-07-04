@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - node.type.diary
+    - system.menu.logged-in-user-menu
   module:
     - node
 id: pokemon_diary
@@ -221,7 +222,21 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: pokemon-diary/%user
+      path: pokemon-diary
+      menu:
+        type: normal
+        title: 'My Pokédex'
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: logged-in-user-menu
+        parent: ''
+        context: '0'
+      tab_options:
+        type: none
+        title: ''
+        description: ''
+        weight: 0
     cache_metadata:
       max-age: -1
       contexts:
