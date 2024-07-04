@@ -70,3 +70,19 @@ function luigimon_form_user_register_form_alter (&$form, \Drupal\Core\Form\FormS
         '#weight' => 10,
     ];
 }
+
+function luigimon_form_user_pass_alter (&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) : void {
+    $form['actions']['log_in_link'] = [
+        '#type' => 'link',
+        '#title' => t('Back to Login'),
+        '#url' => \Drupal\Core\Url::fromRoute('user.login'),
+        '#attributes' => [
+            'class' => [
+                'button',
+                'button-action',
+                'button--primary',
+            ],
+        ],
+        '#weight' => 10,
+    ];
+}
