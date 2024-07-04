@@ -63,8 +63,6 @@ class PokeApiController extends ControllerBase {
    *   The JSON response.
    */
   public function autocomplete(Request $request) {
-    //  $test =  [['value'=>'Pikachu', 'label' => 'Pikachu'], ['normal'=>'ditto']];
-    //  return new JsonResponse($test);
     $matches = [];
     $input = $request->query->get('q');
 
@@ -151,50 +149,10 @@ class PokeApiController extends ControllerBase {
         'status' => 'success',
         'file_id' => $file->id(),
         'file_name' => $pokemon_name,
-    ]);
+      ]);
 
     // Error handling if file_put_contents fails
     return new JsonResponse(['status' => 'error', 'message' => 'Failed to save image data'], 500);
-
-
-      // Check if the file already exists based on URI
-      // $existing_file = $this->findExistingFile($image_url);
-
-      // var_dump($existing_file);
-      // die();
-
-      // if ($existing_file) {
-      //     // Return success response with existing file ID and name
-      //     return new JsonResponse([
-      //         'status' => 'success',
-      //         'file_id' => $existing_file->id(),
-      //         'file_name' => $pokemon_name,
-      //     ]);
-      // }
-        // Prepare file name and directory
-        $file_name = 'public://' . basename($image_url);
-        // $file_system = \Drupal::service('file_system');
-        // $file_system->prepareDirectory('public://', FileSystemInterface::CREATE_DIRECTORY);
-
-        // Save image data to file
-        // if (file_put_contents($file_name, $image_data) !== false) {
-        //     // Create and save the file entity
-        //     $file = File::create([
-        //         'uri' => $file_name,
-        //         'status' => 1,
-        //     ]);
-        //     $file->save();
-
-        //     // Return success response with file ID and name
-        //     return new JsonResponse([
-        //         'status' => 'success',
-        //         'file_id' => $file->id(),
-        //         'file_name' => $pokemon_name,
-        //     ]);
-        // } else {
-        //     // Error handling if file_put_contents fails
-        //     return new JsonResponse(['status' => 'error', 'message' => 'Failed to save image data'], 500);
-        // }
     }
 
     // Return error response if input data is invalid or incomplete
