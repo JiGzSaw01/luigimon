@@ -5,6 +5,7 @@ module:
   automated_cron: 0
   big_pipe: 0
   block: 0
+  block_class: 0
   block_content: 0
   breakpoint: 0
   ckeditor5: 0
@@ -16,6 +17,7 @@ module:
   current_user_info: 0
   datetime: 0
   dblog: 0
+  diary_modal: 0
   dynamic_page_cache: 0
   editor: 0
   field: 0
@@ -29,16 +31,19 @@ module:
   link: 0
   menu_link_content: 0
   menu_ui: 0
+  my_pokedex: 0
   mysql: 0
   node: 0
   options: 0
   page_cache: 0
   path: 0
   path_alias: 0
+  pokeapi_integration: 0
   registration_role: 0
   search: 0
   shortcut: 0
   system: 0
+  tagify: 0
   taxonomy: 0
   text: 0
   token: 0

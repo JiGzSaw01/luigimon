@@ -5,6 +5,7 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - node.type.diary
+    - system.menu.logged-in-user-menu
   module:
     - node
 id: pokemon_diary
@@ -21,7 +22,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Pokemon Diary'
+      title: 'My Pokédex'
       fields:
         title:
           id: title
@@ -75,7 +76,7 @@ display:
         options:
           offset: 0
           pagination_heading_level: h4
-          items_per_page: 9
+          items_per_page: 7
           total_pages: null
           id: 0
           tags:
@@ -201,20 +202,7 @@ display:
           query_tags: {  }
       relationships: {  }
       use_ajax: true
-      header:
-        area:
-          id: area
-          table: views
-          field: area
-          relationship: none
-          group_type: group
-          admin_label: ''
-          plugin_id: text
-          empty: true
-          content:
-            value: '<a class="use-ajax" data-dialog-type="modal" href="/node/add/diary">Add Pokemon</a>'
-            format: full_html
-          tokenize: false
+      header: {  }
       footer: {  }
       display_extenders: {  }
     cache_metadata:
@@ -235,6 +223,20 @@ display:
     display_options:
       display_extenders: {  }
       path: pokemon-diary
+      menu:
+        type: normal
+        title: 'My Pokédex'
+        description: ''
+        weight: 0
+        expanded: false
+        menu_name: logged-in-user-menu
+        parent: ''
+        context: '0'
+      tab_options:
+        type: none
+        title: ''
+        description: ''
+        weight: 0
     cache_metadata:
       max-age: -1
       contexts:

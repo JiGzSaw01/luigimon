@@ -69,6 +69,7 @@
 #}
 {%
   set classes = [
+    'card',
     'node',
     'node--type-' ~ node.bundle|clean_class,
     node.isPromoted() ? 'node--promoted',
@@ -78,28 +79,28 @@
   ]
 %}
 {{ attach_library('claro/classy.node') }}
-<article{{ attributes.addClass(classes) }}>
+<article{{attributes.addClass(classes)}}>
+	<img class="card-img-top" alt="Pokemon card image" src="{{content.field_pokemon_image.0}}" onerror="this.onerror=null;this.src='{{ directory ~ '/images/default-pokemon.svg' }}';" width="176px" height="95px"/>
+	<div class="card-body p-0">
+		{% if content.field_pokemon_id %}
+			<div class="card-id">{{content.field_pokemon_id}}</div>
+		{% endif %}
+		{{ title_prefix }}
+		<div class="text-uppercase fw-bolder">{{content.field_pokemon_name}}</div>
+		{{ title_suffix }}
+		{% if content.field_pokemon_type %}
+			<div class="pokemon-types">
+				{{content.field_pokemon_type}}
+			</div>
+		{% endif %}
 
-  {{ title_prefix }}
-  {% if label and not page %}
-    <h2{{ title_attributes }}>
-      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
-    </h2>
-  {% endif %}
-  {{ title_suffix }}
-
-  {% if display_submitted %}
-    <footer class="node__meta">
-      {{ author_picture }}
-      <div{{ author_attributes.addClass('node__submitted') }}>
-        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
-        {{ metadata }}
-      </div>
-    </footer>
-  {% endif %}
-
-  <div{{ content_attributes.addClass('node__content') }}>
-    {{ content }}
-  </div>
-
+		<div class="card-label-value">
+			<label class="text-uppercase">Capture Location:</label>
+			<span>{{content.field_pokestop}}</span>
+		</div>
+		<div class="card-label-value">
+			<label class="text-uppercase">Capture date:</label>
+			<span>{{content.field_captured_date}}</span>
+		</div>
+	</div>
 </article>

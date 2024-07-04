@@ -1,0 +1,49 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Diary Modal module.
+ */
+
+function diary_modal_theme($existing, $type, $theme, $path)
+{
+    return [
+        'diary_modal_block' => [
+            'variables' => [
+                'link' => '',
+                'current_user_id' => '',
+            ],
+        ],
+    ];
+}
+
+function diary_modal_preprocess_views_view__pokemon_diary(&$variables)
+{
+    $customblock = \Drupal::service('plugin.manager.block')->createInstance('diary_modal_block', []);
+    if (isset($customblock) && !empty($customblock)) {
+        $variables['diaryModal'] = $customblock->build();
+    }
+}
+
+function diary_modal_form_node_diary_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id): void
+{
+
+    $form['advanced']['#access'] = FALSE;
+    $form['actions']['preview']['#access'] = FALSE;
+
+    $form['actions']['close'] = [
+        '#type' => 'submit',
+        '#value' => t('Close'),
+    ];
+
+    $form['actions']['submit']['#submit'][] = 'node_diary_custom_submit_redirect';
+}
+
+/**
+ * Submit callback function to redirect to a view after submitting the node form.
+ */
+function node_diary_custom_submit_redirect(&$form, \Drupal\Core\Form\FormStateInterface $form_state)
+{
+    // Redirect to a view after node creation.
+    $form_state->setRedirect('view.pokemon_diary.page_1');
+}

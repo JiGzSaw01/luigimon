@@ -8,9 +8,9 @@ libraries:
   - luigimon/global
   - luigimon/bootstrap
 regions:
-  header: 'Header'
   primary_menu: 'Primary menu'
   secondary_menu: 'Secondary menu'
+  header: 'Header'
   page_top: 'Page top'
   page_bottom: 'Page bottom'
   featured: 'Featured'

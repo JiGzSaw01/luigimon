@@ -22,7 +22,7 @@ mode: teaser
 content:
   field_captured_date:
     type: timestamp
-    label: above
+    label: hidden
     settings:
       date_format: custom
       custom_date_format: 'F d, Y h:i'
@@ -42,7 +42,7 @@ content:
     region: content
   field_pokemon_id:
     type: number_integer
-    label: above
+    label: hidden
     settings:
       thousand_separator: ''
       prefix_suffix: true
@@ -50,13 +50,10 @@ content:
     weight: 5
     region: content
   field_pokemon_image:
-    type: image
+    type: image_url
     label: above
     settings:
-      image_link: ''
-      image_style: ''
-      image_loading:
-        attribute: lazy
+      image_style: pokemon_thumbnail
     third_party_settings: {  }
     weight: 0
     region: content
@@ -70,7 +67,7 @@ content:
     region: content
   field_pokemon_type:
     type: entity_reference_entity_view
-    label: above
+    label: hidden
     settings:
       view_mode: pill
       link: false
@@ -79,7 +76,7 @@ content:
     region: content
   field_pokestop:
     type: basic_string
-    label: above
+    label: hidden
     settings: {  }
     third_party_settings: {  }
     weight: 3

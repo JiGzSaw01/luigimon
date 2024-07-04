@@ -1,0 +1,5 @@
+services:
+  my_pokedex.event_subscriber:
+    class: Drupal\my_pokedex\EventSubscriber\MyPokedexEventSubscriber
+    tags:
+      - { name: event_subscriber }

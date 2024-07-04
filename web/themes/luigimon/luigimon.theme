@@ -18,7 +18,10 @@ function luigimon_preprocess_html(array &$variables): void {
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function luigimon_preprocess_page(array &$variables): void {
-
+    $route = \Drupal::routeMatch()->getRouteName();
+    $variables['is_pokemon_diary'] = $route == 'view.pokemon_diary.page_1';
+    $current_path = \Drupal::service('path.current')->getPath();
+    $variables['show_bg'] = $current_path == "/user/login" || $current_path == "/user/register" || $current_path == "/user/password" ? TRUE : FALSE;
 }
 
 /**
@@ -56,6 +59,22 @@ function luigimon_form_user_login_form_alter(&$form, \Drupal\Core\Form\FormState
 function luigimon_form_user_register_form_alter (&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) : void {
     $form['actions']['submit']['#value'] = t('Sign up');
 
+    $form['actions']['log_in_link'] = [
+        '#type' => 'link',
+        '#title' => t('Back to Login'),
+        '#url' => \Drupal\Core\Url::fromRoute('user.login'),
+        '#attributes' => [
+            'class' => [
+                'button',
+                'button-action',
+                'button--primary',
+            ],
+        ],
+        '#weight' => 10,
+    ];
+}
+
+function luigimon_form_user_pass_alter (&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) : void {
     $form['actions']['log_in_link'] = [
         '#type' => 'link',
         '#title' => t('Back to Login'),
