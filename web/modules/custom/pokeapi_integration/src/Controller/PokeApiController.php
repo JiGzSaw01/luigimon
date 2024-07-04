@@ -9,6 +9,7 @@ use GuzzleHttp\ClientInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Drupal\file\Entity\File;
+use Drupal\Core\File\FileSystemInterface;
 
 /**
  * Class PokeApiController.
@@ -119,40 +120,61 @@ class PokeApiController extends ControllerBase {
 
     // Ensure both image URL and Pokemon name are provided
     if ($image_url && $pokemon_name) {
+
+      $image_data = file_get_contents($image_url);
+      $base_name = basename($image_url);
+      $file_repository = \Drupal::service('file.repository');
+
+      $file = $file_repository->writeData($image_data, "public://" . $base_name, FileSystemInterface::EXISTS_REPLACE);
+
+      return new JsonResponse([
+        'status' => 'success',
+        'file_id' => $file->id(),
+        'file_name' => $pokemon_name,
+    ]);
+
+    // Error handling if file_put_contents fails
+    return new JsonResponse(['status' => 'error', 'message' => 'Failed to save image data'], 500);
+
+
       // Check if the file already exists based on URI
-      $existing_file = $this->findExistingFile($image_url);
-      if ($existing_file) {
-          // Return success response with existing file ID and name
-          return new JsonResponse([
-              'status' => 'success',
-              'file_id' => $existing_file->id(),
-              'file_name' => $pokemon_name,
-          ]);
-      }
+      // $existing_file = $this->findExistingFile($image_url);
+
+      // var_dump($existing_file);
+      // die();
+
+      // if ($existing_file) {
+      //     // Return success response with existing file ID and name
+      //     return new JsonResponse([
+      //         'status' => 'success',
+      //         'file_id' => $existing_file->id(),
+      //         'file_name' => $pokemon_name,
+      //     ]);
+      // }
         // Prepare file name and directory
         $file_name = 'public://' . basename($image_url);
         // $file_system = \Drupal::service('file_system');
         // $file_system->prepareDirectory('public://', FileSystemInterface::CREATE_DIRECTORY);
 
         // Save image data to file
-        if (file_put_contents($file_name, $image_data) !== false) {
-            // Create and save the file entity
-            $file = File::create([
-                'uri' => $file_name,
-                'status' => 1,
-            ]);
-            $file->save();
+        // if (file_put_contents($file_name, $image_data) !== false) {
+        //     // Create and save the file entity
+        //     $file = File::create([
+        //         'uri' => $file_name,
+        //         'status' => 1,
+        //     ]);
+        //     $file->save();
 
-            // Return success response with file ID and name
-            return new JsonResponse([
-                'status' => 'success',
-                'file_id' => $file->id(),
-                'file_name' => $pokemon_name,
-            ]);
-        } else {
-            // Error handling if file_put_contents fails
-            return new JsonResponse(['status' => 'error', 'message' => 'Failed to save image data'], 500);
-        }
+        //     // Return success response with file ID and name
+        //     return new JsonResponse([
+        //         'status' => 'success',
+        //         'file_id' => $file->id(),
+        //         'file_name' => $pokemon_name,
+        //     ]);
+        // } else {
+        //     // Error handling if file_put_contents fails
+        //     return new JsonResponse(['status' => 'error', 'message' => 'Failed to save image data'], 500);
+        // }
     }
 
     // Return error response if input data is invalid or incomplete
