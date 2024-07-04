@@ -134,6 +134,8 @@ class DiaryModal extends BlockBase implements ContainerFactoryPluginInterface
       $link_options = [
         'attributes' => [
           'class' => [
+            'btn',
+            'btn-secondary',
             'use-ajax',
             'diary-modal-block',
           ],
