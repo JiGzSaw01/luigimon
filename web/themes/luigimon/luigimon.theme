@@ -20,6 +20,7 @@ function luigimon_preprocess_html(array &$variables): void {
 function luigimon_preprocess_page(array &$variables): void {
     $route = \Drupal::routeMatch()->getRouteName();
     $variables['is_pokemon_diary'] = $route == 'view.pokemon_diary.page_1';
+    $variables['user_id'] = \Drupal::routeMatch()->getParameter('user');
 }
 
 /**
