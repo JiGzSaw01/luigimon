@@ -40,7 +40,7 @@
  */
 #}
 <main class="luigimon-page {{logged_in ? '' : 'bg'}}">
-	{% if page.primary_menu %}
+	{% if page.primary_menu and page.header %}
 		<header class="clearfix p-0">
 			<div class="menu-header">
 				<div class="boxed-width d-flex d-flex justify-content-between align-items-center">
@@ -69,7 +69,7 @@
 				{{ page.help }}
 			</div>
 		{% endif %}
-		{% if not logged_in %}
+		{% if not logged_in and page.primary_menu and page.header %}
 			<div class="user-page d-flex flex-column align-items-center justify-content-center">
 				<h2 class="h1 logo-text-solid">Luigimon</h2>
 				{{ page.content }}
