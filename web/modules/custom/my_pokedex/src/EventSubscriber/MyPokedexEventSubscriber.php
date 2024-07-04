@@ -43,7 +43,7 @@ class MyPokedexEventSubscriber implements EventSubscriberInterface
         if ($current_user->id()) {
           // Get the current context parameters.
           $current_param = $route->getParameter('arg_0');
-          if (empty($current_param)) {
+          if (empty($current_param) && $current_param !== '0') {
             // Build the new URL with parameters.
             $new_url = $request->getBaseUrl() . $request->getPathInfo() . '/' . $current_user->id();
 
