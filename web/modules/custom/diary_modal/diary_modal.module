@@ -27,16 +27,25 @@ function diary_modal_preprocess_views_view__pokemon_diary(&$variables)
 
 function diary_modal_form_node_diary_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id): void
 {
+    // Check if this is not a front-end page request. ie. in a modal
+    if (Drupal::request()->isXmlHttpRequest()) {
+        $form['advanced']['#access'] = FALSE;
+        $form['actions']['preview']['#access'] = FALSE;
 
-    $form['advanced']['#access'] = FALSE;
-    $form['actions']['preview']['#access'] = FALSE;
-
-    $form['actions']['close'] = [
-        '#type' => 'submit',
-        '#value' => t('Close'),
-    ];
+        // Add close button.
+        $form['actions']['close'] = [
+            '#type' => 'link',
+            '#title' => t('Close'),
+            '#url' => Drupal\Core\Url::fromRoute('<current>'),
+            '#attributes' => [
+                'class' => ['use-ajax-close', 'button', 'button--secondary'],
+            ],
+        ];
+    }
 
     $form['actions']['submit']['#submit'][] = 'node_diary_custom_submit_redirect';
+    $form['#attached']['library'][] = 'diary_modal/diary_modal.libraries';
+
 }
 
 /**

@@ -1,0 +1,9 @@
+diary_modal.libraries:
+  version: 1.x
+  css:
+    theme:
+      css/diary-modal.css: {}
+  js:
+    js/diary-modal.js: {}
+  dependencies:
+  - core/drupal
