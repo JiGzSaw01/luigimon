@@ -21,7 +21,7 @@ display:
     display_plugin: default
     position: 0
     display_options:
-      title: 'Pokemon Diary'
+      title: 'My Pokédex'
       fields:
         title:
           id: title
@@ -221,7 +221,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: pokemon-diary
+      path: pokemon-diary/%user
     cache_metadata:
       max-age: -1
       contexts:

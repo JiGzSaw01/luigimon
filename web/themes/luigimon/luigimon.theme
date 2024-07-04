@@ -18,7 +18,8 @@ function luigimon_preprocess_html(array &$variables): void {
  * Implements hook_preprocess_HOOK() for page.html.twig.
  */
 function luigimon_preprocess_page(array &$variables): void {
-
+    $route = \Drupal::routeMatch()->getRouteName();
+    $variables['is_pokemon_diary'] = $route == 'view.pokemon_diary.page_1';
 }
 
 /**

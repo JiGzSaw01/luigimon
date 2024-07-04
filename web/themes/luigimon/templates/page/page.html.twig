@@ -39,6 +39,9 @@
  * @see html.html.twig
  */
 #}
+{% if is_pokemon_diary %}
+{% else %}
+{% endif %}
 <main class="luigimon-page {{logged_in ? '' : 'bg'}}">
 	{% if page.primary_menu and page.header %}
 		<header class="clearfix p-0">
