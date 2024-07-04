@@ -98,6 +98,7 @@ class PokeApiController extends ControllerBase {
           $typeString = trim($typeString);
           
           // Add the detailed information to matches
+          $id = (int)$details['id'];
           $type = $details['types'][0]['type']['name'];
           $pokemonName = ucfirst($pokemon['name']);
           $terms = \Drupal::entityTypeManager()
@@ -114,7 +115,8 @@ class PokeApiController extends ControllerBase {
             'type_ID'   => $term,
             'type_name' => $type,
             'img'       =>  $details['sprites']['other']['showdown']['front_default'],
-            'type_string' => $typeString
+            'type_string' => $typeString,
+            'id' => $id
           ];
         }
       }
