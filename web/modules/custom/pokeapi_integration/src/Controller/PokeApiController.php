@@ -79,6 +79,23 @@ class PokeApiController extends ControllerBase {
           $details_response = $this->httpClient->request('GET', $pokemon['url']);
           $details = json_decode($details_response->getBody()->getContents(), TRUE);
           $this->logger->info('Pokémon details: @details', ['@details' => print_r($details, TRUE)]);
+
+          $typeString = "";
+          foreach($details['types'] as $typeKey => $type) {
+            $typeName = $type['type']['name'];
+            $terms = \Drupal::entityTypeManager()
+            ->getStorage('taxonomy_term')
+            ->loadByProperties([
+                'vid'  => 'type',
+                'name' => $typeName,
+            ]);
+            $typeTermId = reset(array_keys($terms));
+            if ($typeString) {
+              $typeString .= ', ';
+            }
+            $typeString .= $typeName . ' (' . $typeTermId . ')';
+          }
+          $typeString = trim($typeString);
           
           // Add the detailed information to matches
           $type = $details['types'][0]['type']['name'];
@@ -89,7 +106,7 @@ class PokeApiController extends ControllerBase {
                     'vid'  => 'type',
                     'name' => $type,
                 ]);
-                $term = reset(array_keys($terms));
+          $term = reset(array_keys($terms));
 
           $matches[] = [
             'value'     => $pokemonName,
@@ -97,6 +114,7 @@ class PokeApiController extends ControllerBase {
             'type_ID'   => $term,
             'type_name' => $type,
             'img'       =>  $details['sprites']['other']['showdown']['front_default'],
+            'type_string' => $typeString
           ];
         }
       }
