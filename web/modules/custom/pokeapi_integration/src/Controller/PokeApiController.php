@@ -79,24 +79,65 @@ class PokeApiController extends ControllerBase {
           $details_response = $this->httpClient->request('GET', $pokemon['url']);
           $details = json_decode($details_response->getBody()->getContents(), TRUE);
           $this->logger->info('Pokémon details: @details', ['@details' => print_r($details, TRUE)]);
-          
-          // Add the detailed information to matches
-          $type = $details['types'][0]['type']['name'];
-          $pokemonName = ucfirst($pokemon['name']);
-          $terms = \Drupal::entityTypeManager()
+
+          $typeString = "";
+          foreach($details['types'] as $typeKey => $type) {
+            $typeName = $type['type']['name'];
+            $terms = \Drupal::entityTypeManager()
             ->getStorage('taxonomy_term')
             ->loadByProperties([
+                'vid'  => 'type',
+                'name' => $typeName,
+            ]);
+            $typeTermId = reset(array_keys($terms));
+            if ($typeString) {
+              $typeString .= ', ';
+            }
+            $typeString .= $typeName . ' (' . $typeTermId . ')';
+          }
+          $typeString = trim($typeString);
+          
+          // Add the detailed information to matches
+          $types = $details['types'];
+          $pokemonName = ucfirst($pokemon['name']);
+          $types = $details['types'];
+          $type_terms = [];
+
+          // Loop through each type and get the term ID
+          foreach ($types as $typeInfo) {
+            $type_name = $typeInfo['type']['name'];
+                  
+            // Load the taxonomy term by name and vocabulary ID
+            $terms = \Drupal::entityTypeManager()
+                ->getStorage('taxonomy_term')
+                ->loadByProperties([
                     'vid'  => 'type',
-                    'name' => $type,
+                    'name' => $type_name,
                 ]);
-                $term = reset(array_keys($terms));
+              
+            // Get the term ID if it exists
+            if (!empty($terms)) {
+                $term = reset($terms); // Get the first term object
+                $type_terms[] = [
+                    'type_ID'   => $term->id(),
+                    'type_name' => $type_name,
+                ];
+            } else {
+                // Handle case where taxonomy term is not found
+                $type_terms[] = [
+                    'type_ID'   => null,
+                    'type_name' => $type_name,
+                ];
+            }
+          }
 
           $matches[] = [
             'value'     => $pokemonName,
             'label'     => $pokemonName,
-            'type_ID'   => $term,
-            'type_name' => $type,
+            'type_ID'   => array_column($type_terms, 'type_ID'),
+            'type_name' => array_column($type_terms, 'type_name'),
             'img'       =>  $details['sprites']['other']['showdown']['front_default'],
+            'type_string' => $typeString
           ];
         }
       }

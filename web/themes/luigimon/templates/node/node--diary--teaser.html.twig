@@ -85,7 +85,9 @@
 		{% if content.field_pokemon_id %}
 			<div class="card-id">{{content.field_pokemon_id}}</div>
 		{% endif %}
+		{{ title_prefix }}
 		<div class="text-uppercase fw-bolder">{{content.field_pokemon_name}}</div>
+		{{ title_suffix }}
 		{% if content.field_pokemon_type %}
 			<div class="pokemon-types">
 				{{content.field_pokemon_type}}
