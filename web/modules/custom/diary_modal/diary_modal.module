@@ -24,3 +24,15 @@ function diary_modal_preprocess_views_view__pokemon_diary(&$variables)
         $variables['diaryModal'] = $customblock->build();
     }
 }
+
+function diary_modal_form_node_diary_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id): void
+{
+
+    $form['advanced']['#access'] = FALSE;
+    $form['actions']['preview']['#access'] = FALSE;
+
+    $form['actions']['close'] = [
+        '#type' => 'submit',
+        '#value' => t('Close'),
+    ];
+}
