@@ -98,44 +98,21 @@ class PokeApiController extends ControllerBase {
           $typeString = trim($typeString);
           
           // Add the detailed information to matches
-          $types = $details['types'];
+          $type = $details['types'][0]['type']['name'];
           $pokemonName = ucfirst($pokemon['name']);
-          $types = $details['types'];
-          $type_terms = [];
-
-          // Loop through each type and get the term ID
-          foreach ($types as $typeInfo) {
-            $type_name = $typeInfo['type']['name'];
-                  
-            // Load the taxonomy term by name and vocabulary ID
-            $terms = \Drupal::entityTypeManager()
-                ->getStorage('taxonomy_term')
-                ->loadByProperties([
+          $terms = \Drupal::entityTypeManager()
+            ->getStorage('taxonomy_term')
+            ->loadByProperties([
                     'vid'  => 'type',
-                    'name' => $type_name,
+                    'name' => $type,
                 ]);
-              
-            // Get the term ID if it exists
-            if (!empty($terms)) {
-                $term = reset($terms); // Get the first term object
-                $type_terms[] = [
-                    'type_ID'   => $term->id(),
-                    'type_name' => $type_name,
-                ];
-            } else {
-                // Handle case where taxonomy term is not found
-                $type_terms[] = [
-                    'type_ID'   => null,
-                    'type_name' => $type_name,
-                ];
-            }
-          }
+          $term = reset(array_keys($terms));
 
           $matches[] = [
             'value'     => $pokemonName,
             'label'     => $pokemonName,
-            'type_ID'   => array_column($type_terms, 'type_ID'),
-            'type_name' => array_column($type_terms, 'type_name'),
+            'type_ID'   => $term,
+            'type_name' => $type,
             'img'       =>  $details['sprites']['other']['showdown']['front_default'],
             'type_string' => $typeString
           ];

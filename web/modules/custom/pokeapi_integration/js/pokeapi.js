@@ -3,7 +3,7 @@
     attach: function (context, settings) {
       $('input[name="field_pokemon_name[0][value]"]', context).autocomplete({
         source: function (request, response) {
-
+         
           $.ajax({
             url: Drupal.url('pokeapi/autocomplete'),
             data: { q: request.term },
@@ -27,22 +27,15 @@
           var valueParts = ui.item.value;
           var pokemonName = capitalize(valueParts);
           var pokemonType = ui.item.type;
-          var pokemonTypeName = ui.item.type_name;
-          var pokemonImage = ui.item.img
-
-          formattedTypes = pokemonTypeName.map(function (typeName, index) {
-            return `${capitalize(typeName)} (${pokemonType[index]})`;
-          }).join(', ');
-
-          // Display the selected Pokémon name and type in console
-          console.log('Selected Pokémon:', pokemonName);
-          console.log('Type:', pokemonType);
-          console.log('TypeName:', pokemonTypeName);
-          console.log('Formatted Types:', formattedTypes);
+          var pokemonTypeName = capitalize(ui.item.type_name);
+          var pokemonImage = ui.item.img;
+          var pokemonTypeString = ui.item.type_string;
 
           // Set the input field value to the Pokémon name and type
           $('input[name="field_pokemon_name[0][value]"]').val(pokemonName);
-          $('input[name="field_pokemon_type[target_id]"]').val(formattedTypes);
+          $('input[name="field_pokemon_type[0][target_id]"]').val(`${pokemonTypeName} (${pokemonType})`);
+          $('input[name="field_pokemon_type[target_id]"]').val(pokemonTypeString);
+
 
           // Check if the image preview div already exists
           var existingPreviewDiv = document.querySelector('.image-preview');
