@@ -14,9 +14,10 @@
           var $url = $(location).attr("href");
           $(".btn-share").click(function () {
             var $userId = $(".luigimon-page .user-id").val();
+            var $lastPath = $url.substring($url.lastIndexOf('/') + 1);
             try {
               $("body").append($temp);
-              $url = $userId ? $url + "/" + $userId : $url;
+              $url = $userId && isNaN($lastPath) ? $url + "/" + $userId : $url;
               $temp.val($url).select();
               document.execCommand("copy");
               $temp.remove();

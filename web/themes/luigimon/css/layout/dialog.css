@@ -1,0 +1,103 @@
+/* Override ui-dialog styles */
+
+.ui-dialog.ui-widget {
+    width: 600px !important;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header {
+    color: #000000;
+    background: white;
+    border-radius: 12px 12px 0px 0px;
+    padding: 16px;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header .ui-dialog-title {
+    font-size: 16px;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header .ui-button {
+    width: 16px;
+    height: 16px;
+}
+
+.ui-dialog.ui-widget .node-diary-form .layout-form {
+    display: block;
+}
+
+.ui-dialog.ui-widget .node-diary-form .layout-region.layout-region--secondary {
+    display: none;
+}
+
+/* .ui-dialog.ui-widget .node-diary-form .field--type-image {
+    position: absolute;
+    width: 45%;
+}
+
+.ui-dialog.ui-widget .node-diary-form .field--type-string,
+.ui-dialog.ui-widget .node-diary-form .field--type-language,
+.ui-dialog.ui-widget .node-diary-form .field--type-entity-reference,
+.ui-dialog.ui-widget .node-diary-form .field--type-integer,
+.ui-dialog.ui-widget .node-diary-form .field--type-timestamp,
+.ui-dialog.ui-widget .node-diary-form .field--type-string-long {
+    margin-left: 50%;
+} */
+
+@media only screen and (min-width: 768px) {
+    .ui-dialog.ui-widget .node-diary-form .field--type-image {
+        position: absolute;
+        width: 45%;
+    }
+    
+    .ui-dialog.ui-widget .node-diary-form .field--type-string,
+    .ui-dialog.ui-widget .node-diary-form .field--type-language,
+    .ui-dialog.ui-widget .node-diary-form .field--type-entity-reference,
+    .ui-dialog.ui-widget .node-diary-form .field--type-integer,
+    .ui-dialog.ui-widget .node-diary-form .field--type-timestamp,
+    .ui-dialog.ui-widget .node-diary-form .field--type-string-long {
+        margin-left: 50%;
+    }
+}
+
+
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content {
+    background: white;
+    border-radius: 0 0 12px 12px;
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset {
+    margin: 16px;
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button {
+    color: white;
+    background-color: #6C757D;
+    width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+    .ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button {
+        width: auto;
+    }
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button:hover {
+    filter: saturate(2) contrast(100%);
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button:active {
+    box-shadow: inset 0px 4px 4px rgb(2 72 191 / 25%);
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button:focus {
+    box-shadow: none;
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button:focus-visible {
+    border: 2px solid white;
+    outline: 3px solid #7749F8;
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button.button--primary {
+    background-color: #7749F8;
+}
