@@ -20,6 +20,10 @@ function luigimon_preprocess_html(array &$variables): void {
 function luigimon_preprocess_page(array &$variables): void {
     $route = \Drupal::routeMatch()->getRouteName();
     $variables['is_pokemon_diary'] = $route == 'view.pokemon_diary.page_1';
+    $current_path = \Drupal::service('path.current')->getPath();
+    $variables['current_path'] = $current_path;
+    $variables['is_shared_link'] = $current_path == "/pokemon-diary" ? TRUE : FALSE;
+    $variables['show_bg'] = $current_path == "/user/login" || $current_path == "/user/register" || $current_path == "/user/password" ? TRUE : FALSE;
 }
 
 /**

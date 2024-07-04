@@ -39,10 +39,10 @@
  * @see html.html.twig
  */
 #}
-{% if is_pokemon_diary %}
-{% else %}
-{% endif %}
-<main class="luigimon-page {{logged_in ? '' : 'bg'}}">
+{{current_path}}
+{{show_bg}}
+<input type="hidden" value="" class="shareable-link"/>
+<main class="luigimon-page {{show_bg ? 'bg' : ''}}">
 	{% if page.primary_menu and page.header %}
 		<header class="clearfix p-0">
 			<div class="menu-header">
@@ -72,13 +72,13 @@
 				{{ page.help }}
 			</div>
 		{% endif %}
-		{% if not logged_in and page.primary_menu and page.header %}
+		{% if logged_in or is_pokemon_diary %}
+			{{ page.content }}
+		{% else %}
 			<div class="user-page d-flex flex-column align-items-center justify-content-center">
 				<h2 class="h1 logo-text-solid">Luigimon</h2>
 				{{ page.content }}
 			</div>
-		{% else %}
-			{{ page.content }}
 		{% endif %}
 	</div>
 </main>
