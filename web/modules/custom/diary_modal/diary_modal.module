@@ -43,7 +43,10 @@ function diary_modal_form_node_diary_form_alter(&$form, \Drupal\Core\Form\FormSt
         ];
     }
 
-    $form['actions']['submit']['#submit'][] = 'node_diary_custom_submit_redirect';
+    $form['field_captured_date']['widget'][0]['value']['#default_value'] = Drupal\Core\Datetime\DrupalDateTime::createFromTimestamp(time());
+    $form['field_captured_date']['widget'][0]['value']['#description'] = '';
+    $form['title']['widget'][0]['value']['#title'] = t('Nickname');
+    $form['actions']['submit']['#submit'][] = 'node_diary_custom_submit_redirect_ajax_callback';
     $form['#attached']['library'][] = 'diary_modal/diary_modal.libraries';
 
 }
@@ -51,7 +54,7 @@ function diary_modal_form_node_diary_form_alter(&$form, \Drupal\Core\Form\FormSt
 /**
  * Submit callback function to redirect to a view after submitting the node form.
  */
-function node_diary_custom_submit_redirect(&$form, \Drupal\Core\Form\FormStateInterface $form_state)
+function node_diary_custom_submit_redirect_ajax_callback(&$form, \Drupal\Core\Form\FormStateInterface $form_state)
 {
     // Redirect to a view after node creation.
     $form_state->setRedirect('view.pokemon_diary.page_1');

@@ -95,11 +95,11 @@
 		{% endif %}
 
 		<div class="card-label-value">
-			<label class="text-uppercase">Capture Location:</label>
+			<label class="text-uppercase">{{ content.field_pokestop['#title']|raw }}:</label>
 			<span>{{content.field_pokestop}}</span>
 		</div>
 		<div class="card-label-value">
-			<label class="text-uppercase">Capture date:</label>
+			<label class="text-uppercase">{{ content.field_captured_date['#title']|raw }}:</label>
 			<span>{{content.field_captured_date}}</span>
 		</div>
 	</div>

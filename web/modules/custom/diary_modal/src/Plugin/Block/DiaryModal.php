@@ -125,12 +125,13 @@ class DiaryModal extends BlockBase implements ContainerFactoryPluginInterface
    */
   public function build()
   {
+    
     $build = [];
+    $context_user_id = \Drupal::routeMatch()->getParameter('arg_0');
     $roles = $this->currentUser ? $this->currentUser->getRoles() : [];
-    if (!empty(array_intersect(['administrator', 'trainer'], $roles))) {
-      $base_url = $this->requestStack->getCurrentRequest()->getSchemeAndHttpHost();
+    $current_user_id = $this->currentUser ? $this->currentUser->id() : NULL;
+    if ($current_user_id === $context_user_id && !empty(array_intersect(['administrator', 'trainer'], $roles))) {
       $url = Url::fromRoute('node.add', ['node_type' => 'diary']);
-      $config = $this->getConfiguration();
       $link_options = [
         'attributes' => [
           'class' => [
