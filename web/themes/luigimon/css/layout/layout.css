@@ -200,6 +200,7 @@ html body {
 .luigimon-page .user-page form .form-type--password-confirm {
     width: 100%;
     max-inline-size: unset;
+    border-radius: 6px;
 }
 
 .luigimon-page .user-page form .form-item .form-item__description,
@@ -230,6 +231,7 @@ html body {
     color: white;
     background-color: #6C757D;
     width: 100%;
+    border-radius: 4px;
 }
 
 @media only screen and (min-width: 768px) {
