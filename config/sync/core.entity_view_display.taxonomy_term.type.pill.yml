@@ -1,0 +1,36 @@
+uuid: 2c0de0cc-493d-4661-942e-9f9ec7c3a259
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.pill
+    - field.field.taxonomy_term.type.field_background_color
+    - field.field.taxonomy_term.type.field_text_color
+    - taxonomy.vocabulary.type
+  module:
+    - color_field
+id: taxonomy_term.type.pill
+targetEntityType: taxonomy_term
+bundle: type
+mode: pill
+content:
+  field_background_color:
+    type: color_field_formatter_text
+    label: hidden
+    settings:
+      format: hex
+      opacity: true
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_text_color:
+    type: color_field_formatter_text
+    label: hidden
+    settings:
+      format: hex
+      opacity: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  description: true

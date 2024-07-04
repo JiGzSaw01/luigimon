@@ -1,0 +1,22 @@
+uuid: 3c186f1e-1583-43b8-b692-df472daf88cf
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - luigimon
+_core:
+  default_config_hash: VhBzWb7lMRtIOg9G7VSw_0uopi-7zXeHq4vXqqV1HFE
+id: luigimon_breadcrumbs
+theme: luigimon
+region: breadcrumb
+weight: 0
+provider: null
+plugin: system_breadcrumb_block
+settings:
+  id: system_breadcrumb_block
+  label: Breadcrumbs
+  label_display: '0'
+  provider: system
+visibility: {  }

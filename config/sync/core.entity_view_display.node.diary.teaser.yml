@@ -1,0 +1,89 @@
+uuid: c951417c-0dc1-4745-a4d8-72de5d2a849e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.diary.body
+    - field.field.node.diary.field_captured_date
+    - field.field.node.diary.field_pokemon_id
+    - field.field.node.diary.field_pokemon_image
+    - field.field.node.diary.field_pokemon_name
+    - field.field.node.diary.field_pokemon_type
+    - field.field.node.diary.field_pokestop
+    - node.type.diary
+  module:
+    - image
+    - user
+id: node.diary.teaser
+targetEntityType: node
+bundle: diary
+mode: teaser
+content:
+  field_captured_date:
+    type: timestamp
+    label: above
+    settings:
+      date_format: custom
+      custom_date_format: 'F d, Y h:i'
+      timezone: ''
+      tooltip:
+        date_format: long
+        custom_date_format: ''
+      time_diff:
+        enabled: false
+        future_format: '@interval hence'
+        past_format: '@interval ago'
+        granularity: 2
+        refresh: 60
+        description: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_pokemon_id:
+    type: number_integer
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_pokemon_image:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_pokemon_name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_pokemon_type:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: pill
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_pokestop:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  body: true
+  links: true
