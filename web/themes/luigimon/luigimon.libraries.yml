@@ -6,6 +6,7 @@ global:
     layout:
       css/layout/layout.css: {}
       css/layout/dialog.css: {}
+      css/layout/message-list.css: {}
     theme:
       css/fonts/fonts.css: {}
   dependencies:
