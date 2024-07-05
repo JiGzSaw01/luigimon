@@ -63,9 +63,6 @@ class MyPokedexEventSubscriber implements EventSubscriberInterface
               $event->setResponse($response);              
             }
           }
-        } else {
-          $response = new RedirectResponse($request->getBaseUrl() . '/user/login', 301);
-          $event->setResponse($response);
         }
       }
     }
