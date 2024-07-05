@@ -10,6 +10,7 @@ use Symfony\Component\DependencyInjection\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use Drupal\file\Entity\File;
 use Drupal\Core\File\FileSystemInterface;
+use Drupal\Core\Cache\Cache;
 
 /**
  * Class PokeApiController.
@@ -180,5 +181,60 @@ class PokeApiController extends ControllerBase {
     }
     return false;
   }
+
+  public function autocompleteLocation(Request $request) {
+    $matches = [];
+    $input = $request->query->get('q');
+    if (!$input) {
+      return new JsonResponse([], 400);
+    }
+    $input = strtolower($input);
+
+    $locations = $this->getLocations();
+    $matches = [];
+    foreach($locations as $location) {
+      if (stripos($location['name'], $input) === 0) {
+        $name = $this->formatLocation($location['name']);
+        $matches[] = [
+          'value' => $name,
+          'label' => $name
+        ];
+      }
+    }
+
+    return new JsonResponse($matches);
+  }
+
+  protected function getLocations() {
+    $cacheId = 'pokemon_locations_cid';
+    $cache = \Drupal::cache();
+    $locations = $cache->get($cacheId);
+    if ($locations->data) {
+      return $locations->data;
+    }
+    $response = $this->httpClient->request('GET', 'https://pokeapi.co/api/v2/location?limit=9999');
+    if (!$response || !$response['results']) {
+      return [];
+    }
+    $locations = json_decode($response->getBody()->getContents(), TRUE);
+    \Drupal::cache()->set($cacheId, $locations['results'], Cache::PERMANENT);
+    return $locations['results'];
+  }
+
+  protected function formatLocation($str) {
+    // Split the string into an array using "-" as delimiter
+    $parts = explode("-", $str);
+    
+    // Initialize an empty array to store capitalized words
+    $capitalized_words = array();
+    
+    // Capitalize each word and add it to the array
+    foreach ($parts as $part) {
+        $capitalized_words[] = ucwords($part);
+    }
+    
+    // Join the capitalized words with a space and return the result
+    return implode(" ", $capitalized_words);
+}
 
 }

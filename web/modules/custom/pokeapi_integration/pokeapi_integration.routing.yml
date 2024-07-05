@@ -12,3 +12,10 @@ pokeapi_integration.save_image:
   requirements:
     _permission: 'access content'
   methods: ['POST']
+pokeapi_integration.location_autocomplete:
+  path: '/pokeapi/location-autocomplete'
+  defaults:
+    _controller: '\Drupal\pokeapi_integration\Controller\PokeApiController::autocompleteLocation'
+    _title: 'Pokémon Location Autocomplete'
+  requirements:
+    _permission: 'access content'
