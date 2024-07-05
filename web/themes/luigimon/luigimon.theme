@@ -92,3 +92,13 @@ function luigimon_form_user_pass_alter(&$form, \Drupal\Core\Form\FormStateInterf
         '#weight' => 10,
     ];
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function luigimon_preprocess_field__node__field_pokemon_id(array &$variables): void
+{
+    if (strlen($variables['items'][0]['content']['#markup']) < 4) {
+        $variables['items'][0]['content']['#markup'] = '<div class="custom-field">' . str_pad($variables['items'][0]['content']['#markup'], 4, '0', STR_PAD_LEFT) . '</div>';
+    }
+}
