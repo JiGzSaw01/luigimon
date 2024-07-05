@@ -5,9 +5,7 @@ dependencies:
   config:
     - field.field.user.user.field_friend_code
     - field.field.user.user.user_picture
-    - image.style.thumbnail
   module:
-    - image
     - user
 _core:
   default_config_hash: FaQ9Ptcpxpg30AtiqRDtl_8zbJArHP1LPfug_s59TOA
@@ -23,25 +21,18 @@ content:
     third_party_settings: {  }
   field_friend_code:
     type: string_textfield
-    weight: 3
+    weight: 2
     region: content
     settings:
       size: 60
       placeholder: ''
     third_party_settings: {  }
   timezone:
-    weight: 2
-    region: content
-    settings: {  }
-    third_party_settings: {  }
-  user_picture:
-    type: image_image
     weight: 1
     region: content
-    settings:
-      progress_indicator: throbber
-      preview_image_style: thumbnail
+    settings: {  }
     third_party_settings: {  }
 hidden:
   contact: true
   language: true
+  user_picture: true

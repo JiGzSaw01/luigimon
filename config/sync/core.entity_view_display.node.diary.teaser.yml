@@ -53,7 +53,7 @@ content:
     type: image_url
     label: above
     settings:
-      image_style: pokemon_thumbnail
+      image_style: ''
     third_party_settings: {  }
     weight: 0
     region: content
