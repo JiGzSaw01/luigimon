@@ -132,7 +132,7 @@ display:
           click_sort_column: value
           type: string
           settings:
-            link_to_entity: true
+            link_to_entity: false
           group_column: value
           group_columns: {  }
           group_rows: true
@@ -471,6 +471,7 @@ display:
           replica: false
           query_tags: {  }
       relationships: {  }
+      css_class: table
       header: {  }
       footer: {  }
       display_extenders: {  }
