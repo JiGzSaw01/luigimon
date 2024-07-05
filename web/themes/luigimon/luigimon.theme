@@ -102,3 +102,32 @@ function luigimon_preprocess_field__node__field_pokemon_id(array &$variables): v
         $variables['items'][0]['content']['#markup'] = '<div class="custom-field">' . str_pad($variables['items'][0]['content']['#markup'], 4, '0', STR_PAD_LEFT) . '</div>';
     }
 }
+
+/**
+ * Implements hook_preprocess_HOOK() for html.html.twig.
+ */
+function luigimon_preprocess_page_title(array &$variables): void
+{
+    // Get the current route match
+    $route_match = \Drupal::routeMatch();
+
+    // Check if the current route is a user profile page
+    if ($route_match->getRouteName() == 'entity.user.canonical') {
+        // Get the user entity from the route match
+        $user = $route_match->getParameter('user');
+
+        // Check if the user object exists
+        if ($user instanceof \Drupal\user\Entity\User) {
+            $variables['title'] = $user->getDisplayName() . "'s Profile";
+        }
+    }
+
+    if ($route_match->getRouteName() == 'view.pokemon_diary.page_1') {
+        $user = \Drupal\user\Entity\User::load($route_match->getParameter('arg_0'));
+
+        // Check if the user object exists
+        if ($user instanceof \Drupal\user\Entity\User) {
+            $variables['title'] = $user->getDisplayName() . "'s Pokédex";
+        }
+    }
+}
