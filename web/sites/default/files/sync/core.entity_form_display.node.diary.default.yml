@@ -49,7 +49,7 @@ content:
       placeholder: ''
     third_party_settings: {  }
   field_pokemon_type:
-    type: entity_reference_autocomplete
+    type: entity_reference_autocomplete_tags
     weight: 3
     region: content
     settings:
@@ -63,7 +63,7 @@ content:
     weight: 4
     region: content
     settings:
-      rows: 5
+      rows: 1
       placeholder: ''
     third_party_settings: {  }
   title:

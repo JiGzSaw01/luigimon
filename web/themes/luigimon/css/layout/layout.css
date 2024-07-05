@@ -1,14 +1,3 @@
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    border: 0;
-}
-
 .page-wrapper:has(.luigimon-page) {
     height: 100%;
 }
@@ -22,6 +11,14 @@
     .boxed-width {
         margin: 0 auto;
     }
+}
+
+.bg {
+    background-image: url('../../images/background.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
 }
 
 body,
@@ -47,6 +44,7 @@ html body {
 .luigimon-page .logo-text-solid {
     font-family: 'Pokemon_solid';
     letter-spacing: 3px;
+    text-shadow: 3px 2px 2px rgba(113, 113, 113, 1);
 }
 
 .luigimon-page .site-name a {
@@ -58,7 +56,6 @@ html body {
 
 .luigimon-page .menu-header {
     background-color: #0a58ca;
-    padding: 6px 0;
 }
 
 .luigimon-page .menu-header .region-primary-menu {
@@ -66,6 +63,8 @@ html body {
     align-items: center;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 6px;
+    padding: 6px 0;
 }
 
 .luigimon-page .menu-header .user-name {
@@ -114,10 +113,38 @@ html body {
     border-radius: 6px;
 }
 
+/* Section header */
+
 .luigimon-page .section-header {
     background-color: #3d8bfd;
     padding: 32px 0;
 }
+
+/* Page content */
+
+.luigimon-page .page-content {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.luigimon-page .page-content>.region {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+@media only screen and (min-width: 990px) {
+    .luigimon-page .page-content>.region {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+.luigimon-page .page-content>.user-page {
+    min-height: 100vh;
+    padding: 60px 0;
+}
+
+/* Button styles */
 
 .luigimon-page .btn {
     font-size: 14px;
@@ -127,10 +154,32 @@ html body {
     padding: 10px 16px;
 }
 
+.luigimon-page .btn:focus {
+    box-shadow: none;
+}
+
+.luigimon-page .btn:focus-visible {
+    outline: 2px solid #17A2B8;
+    outline-offset: -2px;
+}
+
+.luigimon-page .btn:hover {
+    opacity: 0.7;
+}
+
+.luigimon-page .btn:active {
+    border-color: transparent;
+    box-shadow: inset 0px 4px 4px rgb(2 72 191 / 25%);
+}
+
 .luigimon-page .btn.btn-secondary {
     border: 1px solid #7749f8;
     color: #7749f8;
     background-color: #ffffff;
+}
+
+.luigimon-page .btn.btn-secondary:active {
+    background-color: transparent
 }
 
 .luigimon-page .btn.dropdown-toggle {
@@ -141,68 +190,121 @@ html body {
     display: none;
 }
 
-.bg {
-    background-image: url('../../images/background.svg');
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-/* Login/Sign up section */
-.luigimon-page .user-login-form {
-    /* display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center; */
-}
-
-.luigimon-page section h2 {
-    margin-bottom: 40px;
-}
-
-.luigimon-page section .btn {
-    text-transform: uppercase;
-    color: #2148c0;
+/* Login/Sign up section styles */
+.luigimon-page .user-page form {
     width: 100%;
-    background-color: #ffffff;
-    border-radius: 4px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.3);
-    font-weight: 600;
-    line-height: 20px;
-    margin-bottom: 10px;
+    max-width: 500px;
 }
 
-.luigimon-page .content .table th,
-.luigimon-page .content .table td {
+.luigimon-page .user-page form .form-item input,
+.luigimon-page .user-page form .form-type--password-confirm {
+    width: 100%;
+    max-inline-size: unset;
+    border-radius: 6px;
+}
+
+.luigimon-page .user-page form .form-item .form-item__description,
+.luigimon-page .user-page form .form-item .password-strength__title,
+.luigimon-page .user-page form .form-item .password-strength__title .password-strength__text,
+.luigimon-page .user-page form .form-item .password-match-message,
+.luigimon-page .user-page form .form-item .password-match-message .password-match-message__text {
+    color: white;
+}
+
+.luigimon-page .user-page form .form-element:hover {
+    border-color: #7749F8;
+    box-shadow: none;
+    outline: 1px solid #7749F8;
+}
+
+.luigimon-page .user-page form .form-element:focus {
+    box-shadow: none;
+}
+
+.luigimon-page .user-page form .form-element:focus-visible {
+    outline: 2px solid #7749F8;
+    outline-offset: 1px;
+    border: 1px solid #7749F8;
+}
+
+.luigimon-page .user-page .button {
+    color: white;
+    background-color: #6C757D;
+    width: 100%;
+    border-radius: 4px;
+}
+
+@media only screen and (min-width: 768px) {
+    .luigimon-page .user-page .button {
+        width: auto;
+    }
+}
+
+.luigimon-page .user-page .button:hover {
+    filter: saturate(2) contrast(100%);
+}
+
+.luigimon-page .user-page .button:active {
+    box-shadow: inset 0px 4px 4px rgb(2 72 191 / 25%);
+}
+
+.luigimon-page .user-page a:focus,
+.luigimon-page .user-page .button:focus {
+    box-shadow: none;
+}
+
+.luigimon-page .user-page a:focus-visible,
+.luigimon-page .user-page .button:focus-visible {
+    border: 2px solid white;
+    outline: 3px solid #7749F8;
+}
+
+.luigimon-page .user-page .button#edit-submit {
+    background-color: #7749F8;
+}
+
+.luigimon-page .user-page #edit-forgot-password-link {
+    color: white;
+}
+
+/* Journal table styles */
+.luigimon-page .page-content .table th,
+.luigimon-page .page-content .table td {
     color: #ffffff;
     background-color: #253341;
 }
 
-.luigimon-page .content .cards-container {
+/* Cards container styles */
+
+.luigimon-page .page-content .cards-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.luigimon-page .content .cards-container>div {
-    flex: 1;
+.luigimon-page .page-content .cards-container>div {
+    flex: 0 0 100%;
     min-width: 200px;
     padding: 8px;
 }
 
 @media only screen and (min-width: 600px) {
-    .luigimon-page .content .cards-container>div {
+    .luigimon-page .page-content .cards-container>div {
         min-width: 50%;
+        flex: 0 0 50%;
     }
 }
 
 @media only screen and (min-width: 990px) {
-    .luigimon-page .content .cards-container>div {
+    .luigimon-page .page-content .cards-container>div {
         min-width: 25%;
+        flex: 0 0 25%;
     }
 }
 
-.luigimon-page .content .card {
+/* Cards styles */
+
+.luigimon-page .page-content .card {
     padding: 20px 12px;
     background-color: #253341;
     color: #ffffff;
@@ -213,56 +315,59 @@ html body {
 }
 
 @media only screen and (min-width: 990px) {
-    .luigimon-page .content .card {
+    .luigimon-page .page-content .card {
         max-width: -moz-fit-content;
         max-width: fit-content;
     }
 }
 
-.luigimon-page .content .card .card-img-top {
+.luigimon-page .page-content .card .card-img-top {
     height: 95px;
+    width: auto;
     margin: 0 auto 12px;
 }
 
-.luigimon-page .content .card .card-body>div+div {
+.luigimon-page .page-content .card .card-body>div+div {
     margin-top: 10px;
 }
 
-.luigimon-page .content .card .card-id {
+.luigimon-page .page-content .card .card-id {
     color: #aab8c2;
     font-weight: 300;
 }
 
-.luigimon-page .content .card .card-label-value label {
+.luigimon-page .page-content .card .card-label-value label {
     font-size: 9px;
     color: #3d8bfd;
     font-weight: 700;
     display: block;
 }
 
-.luigimon-page .content .card .card-label-value span {
+.luigimon-page .page-content .card .card-label-value span {
     font-size: 12px;
     color: #aab8c2;
     font-weight: 500;
 }
 
-.luigimon-page .content .card.add-pokemon {
+.luigimon-page .page-content .card.add-pokemon {
     background-color: #ffffff;
     align-items: center;
     justify-content: center;
 }
 
-.luigimon-page .content .card.add-pokemon .btn {
+.luigimon-page .page-content .card.add-pokemon .btn {
     border-color: #17a2b8;
     color: #17a2b8;
     margin-top: 20px;
 }
 
-.luigimon-page .pokemon-types {
+.luigimon-page .pokemon-types>div {
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
 }
+
+/* Pokemon types pill styles */
 
 .luigimon-page .pokemon-types .pill {
     text-transform: uppercase;
@@ -273,81 +378,21 @@ html body {
     background-color: #aab8c2;
     color: #343a40;
     line-height: normal;
+    text-align: center;
+    width: fit-content;
 }
 
-.luigimon-page .pokemon-types .pill.poison {
-    color: white;
-    background-color: #7749f8;
+/* Pager styles */
+
+.luigimon-page .pager .pager__items {
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0;
 }
 
-.luigimon-page .pokemon-types .pill.steel {
-    color: white;
-    background-color: #6c757d;
+.luigimon-page .pager .pager__link.is-active,
+.luigimon-page .pager .pager__item--current {
+    background: #0A58CA;
 }
-
-.luigimon-page .pokemon-types .pill.fire {
-    color: white;
-    background-color: #dc3545;
-}
-
-.luigimon-page .pokemon-types .pill.grass {
-    color: white;
-    background-color: #28a745;
-}
-
-.luigimon-page .pokemon-types .pill.water {
-    color: white;
-    background-color: #17a2b8;
-}
-
-.luigimon-page .pokemon-types .pill.electric {
-    color: white;
-    background-color: #ffc107;
-}
-
-.luigimon-page .pokemon-types .pill.dark {
-    color: white;
-    background-color: #343a40;
-}
-
-.luigimon-page .pokemon-types .pill.psychic {
-    color: #5227cc;
-    background-color: #ebe5fc;
-}
-
-.luigimon-page .pokemon-types .pill.rock {
-    color: #212529;
-    background-color: #abb5be;
-}
-
-.luigimon-page .pokemon-types .pill.fighting {
-    color: #58151c;
-    background-color: #f8d7da;
-}
-
-.luigimon-page .pokemon-types .pill.bug {
-    color: #0a3622;
-    background-color: #d1e7dd;
-}
-
-.luigimon-page .pokemon-types .pill.flying {
-    color: #055160;
-    background-color: #cff4fc;
-}
-
-.luigimon-page .pokemon-types .pill.ground {
-    color: #664d03;
-    background-color: #fff3cd;
-}
-
-.luigimon-page .pokemon-types .pill.dragon {
-    color: #343a40;
-    background-color: #adb5bd;
-}
-
-.luigimon-page .pokemon-types .pill.ghost {
-    color: #495057;
-    background-color: #f8f9fa;
-}
-
-/*# sourceMappingURL=style.css.map */

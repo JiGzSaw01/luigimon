@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Theme override for page titles.
+ *
+ * Available variables:
+ * - title_attributes: HTML attributes for the page title element.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title: The page title, for use in the actual content.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ */
+#}
+{{ title_prefix }}
+  <div class="section-header">
+    <div class="boxed-width d-flex justify-content-between align-items-center">
+      {% if title %}
+        <h2{{ title_attributes.addClass(['page-title', 'h1', 'logo-text']) }}>{{ title }}</h2>
+      {% endif %}
+      <button class="btn btn-share p-1" data-toggle="tooltip" data-placement="bottom" title="Copied link to clipboard">
+        {{ source(directory ~ '/images/share.svg') }}
+      </button>
+    </div>
+  </div>
+{{ title_suffix }}

@@ -1,0 +1,8 @@
+uuid: 801650e1-1559-48a7-9224-469b750e6c25
+langcode: en
+status: true
+dependencies: {  }
+id: logged-in-user-menu
+label: 'Logged in user menu'
+description: ''
+locked: false

@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for My Journal module.
+ */
+
+ function my_journal_preprocess_region__content(array &$variables)
+{
+    $user = \Drupal::routeMatch()->getParameter('user');
+    if ($user instanceof  Drupal\user\Entity\User) {
+        // Load the Views executable.
+        $view_id = 'my_journal';
+        $display_id = 'block_1';
+
+        // Load the view object.
+        $view = Drupal\views\Views::getView($view_id);
+
+        // Check if the view exists and is enabled.
+        if (is_object($view)) {
+            // Ensure the view is accessible.
+            if ($view->access($display_id)) {
+                // Optionally set any contextual filters (arguments).
+                $view->setDisplay($display_id);
+
+                // Execute the view.
+                $view->preExecute();
+                $view->execute();
+
+                // Render the view output.
+                $rendered_output = $view->render();
+
+                // Attach the rendered output to your template variables.
+                $variables['myJournalBlock'] = $rendered_output;
+                $variables['myJournalBlockTitle'] = $view->getTitle();
+            }
+        }
+    }
+}

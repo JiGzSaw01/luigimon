@@ -1,0 +1,5 @@
+name: 'Diary Modal'
+type: module
+description: 'Custom module for Node Diary Form Modal'
+package: Custom
+core_version_requirement: ^10 || ^11

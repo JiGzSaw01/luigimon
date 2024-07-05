@@ -5,3 +5,10 @@ pokeapi_integration.autocomplete:
     _title: 'Pokémon Autocomplete'
   requirements:
     _permission: 'access content'
+pokeapi_integration.save_image:
+  path: '/pokeapi/save-image'
+  defaults:
+    _controller: '\Drupal\pokeapi_integration\Controller\PokeApiController::saveImage'
+  requirements:
+    _permission: 'access content'
+  methods: ['POST']

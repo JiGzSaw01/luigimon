@@ -1,0 +1,167 @@
+/* Override ui-dialog styles */
+
+.ui-dialog.ui-widget {
+    width: 600px !important;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header {
+    color: #000000;
+    background: white;
+    border-radius: 12px 12px 0px 0px;
+    padding: 16px;
+    border: 1px solid #CED4DA;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header .ui-dialog-title {
+    font-size: 16px;
+    color: white;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header .ui-dialog-title::after {
+    content: "Add Pokemon";
+    color: black;
+    margin: -16%;
+}
+
+.ui-dialog.ui-widget .ui-dialog-titlebar.ui-widget-header .ui-button {
+    width: 16px;
+    height: 16px;
+}
+
+.ui-dialog.ui-widget .ui-dialog-content.ui-widget-content {
+    padding: 0 16px;
+    border-left: 1px solid #CED4DA;
+    border-right: 1px solid #CED4DA;
+}
+
+.ui-dialog.ui-widget .node-diary-form .layout-form {
+    display: block;
+}
+
+.ui-dialog.ui-widget .node-diary-form .layout-region.layout-region--secondary {
+    display: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .ui-dialog.ui-widget .node-diary-form .field--type-image {
+        position: absolute;
+        width: 43%;
+    }
+
+    .ui-dialog.ui-widget .node-diary-form .field--type-image details {
+        margin: 0;
+        border-color: #E0CFFC;
+        border-radius: 6px;
+    }
+
+    .ui-dialog.ui-widget .node-diary-form .field--type-string,
+    .ui-dialog.ui-widget .node-diary-form .field--type-language,
+    .ui-dialog.ui-widget .node-diary-form .field--type-entity-reference,
+    .ui-dialog.ui-widget .node-diary-form .field--type-integer,
+    .ui-dialog.ui-widget .node-diary-form .field--type-timestamp,
+    .ui-dialog.ui-widget .node-diary-form .field--type-string-long {
+        margin-left: 50%;
+    }
+}
+
+/* Form override styles */
+.ui-dialog.ui-widget .node-diary-form .form-item .form-item__label {
+    color: #6C757D;
+}
+
+.ui-dialog.ui-widget .node-diary-form .form-item .form-element:hover {
+    border-color: #7749F8;
+    box-shadow: none;
+    outline: 1px solid #7749F8;
+}
+
+.ui-dialog:focus,
+.ui-dialog.ui-widget .node-diary-form .form-item .tagify.form-element--api-entity-autocomplete-tagify:focus-within,
+.ui-dialog.ui-widget .node-diary-form .form-item .form-element:focus {
+    box-shadow: none !important;
+}
+
+.ui-dialog.ui-widget .node-diary-form .form-item .tagify__input {
+    margin: 0 !important;
+}
+
+.ui-dialog.ui-widget .node-diary-form .form-item .form-element {
+    border-radius: 6px;
+    border-color: #919297;
+    width: 100%;
+}
+
+.ui-dialog.ui-widget .node-diary-form .form-item .form-element.form-text,
+.ui-dialog.ui-widget .node-diary-form .form-item .form-element.form-time,
+.ui-dialog.ui-widget .node-diary-form .form-item .form-element.form-date,
+.ui-dialog.ui-widget .node-diary-form .form-item .form-element.form-number {
+    padding: 6px 8px;
+    min-height: 40px;
+}
+
+.ui-dialog.ui-widget .node-diary-form .form-item .form-element:focus-visible {
+    outline: 2px solid #7749F8;
+    outline-offset: 1px;
+    border: 1px solid #7749F8;
+}
+
+.ui-dialog.ui-widget .node-diary-form .form-items-inline>.form-item {
+    width: 100%;
+}
+
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content {
+    background: white;
+    border-radius: 0 0 12px 12px;
+    border: 1px solid #CED4DA;
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset {
+    margin: 16px;
+}
+
+/* Button override styles */
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button {
+    color: white;
+    background-color: #6C757D;
+    width: 100%;
+    border-radius: 4px;
+}
+
+@media only screen and (min-width: 600px) {
+    .ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button {
+        width: auto;
+    }
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button:hover {
+    filter: saturate(2) contrast(100%);
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button:active {
+    box-shadow: inset 0px 4px 4px rgb(2 72 191 / 25%);
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button:focus {
+    box-shadow: none;
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button:focus-visible {
+    border: 2px solid white;
+    outline: 3px solid #7749F8;
+}
+
+.ui-dialog.ui-widget .ui-dialog-buttonpane.ui-widget-content .ui-dialog-buttonset .button.button--primary {
+    background-color: #7749F8;
+}
+
+/* Autocomplete override */
+
+.ui-dialog.ui-widget .ui-autocomplete .ui-menu-item-wrapper.ui-state-active {
+    background-color: #7749F8;
+}
+
+.ui-dialog.ui-widget .ui-autocomplete .ui-menu-item-wrapper {
+    padding: 6px 8px;
+}
