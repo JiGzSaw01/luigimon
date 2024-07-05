@@ -28,6 +28,8 @@ html {
 
 html body {
     background-color: #cfe2ff;
+    font-family: 'Broaek_Regular';
+    letter-spacing: 1px;
 }
 
 .luigimon-page {
@@ -50,6 +52,10 @@ html body {
 .luigimon-page .site-name a {
     color: white;
     text-decoration: none;
+}
+
+.luigimon-page .header .block-page-title-block {
+    margin: 0;
 }
 
 /* Menu header */
@@ -268,6 +274,10 @@ html body {
 }
 
 /* Journal table styles */
+.luigimon-page .my-journal-title {
+    color: #3D8BFD;
+}
+
 .luigimon-page .page-content .table th,
 .luigimon-page .page-content .table td {
     color: #ffffff;
@@ -396,4 +406,93 @@ html body {
 .luigimon-page .pager .pager__link.is-active,
 .luigimon-page .pager .pager__item--current {
     background: #0A58CA;
+}
+
+/* User profile */
+
+.luigimon-page .user-profile {
+    background-color: #253341;
+    display: flex;
+    width: fit-content;
+    margin: auto;
+    padding: 20px;
+    border-radius: 12px;
+    width: calc(100% - 60px);
+    align-items: center;
+    margin-bottom: 60px;
+}
+
+.luigimon-page .user-profile .user-image div,
+.luigimon-page .user-profile .pokedex-link div {
+    padding: 20px;
+    border-radius: 100%;
+    background-color: #253341;
+}
+
+.luigimon-page .user-profile .user-image div {
+    margin-left: -60px;
+}
+
+.luigimon-page .user-profile img {
+    width: 150px;
+    height: 150px;
+}
+
+.luigimon-page .user-profile .user-details {
+    padding: 0 20px;
+    padding-left: 40px;
+}
+
+.luigimon-page .user-profile .user-details .label-value label {
+    color: #3d8bfd;
+    font-weight: 700;
+    line-height: 120%;
+    display: block;
+}
+
+.luigimon-page .user-profile .user-details .label-value span {
+    color: #aab8c2;
+    font-weight: 500;
+    margin-left: 20px;
+}
+
+.luigimon-page .user-profile .user-details .label-value span div {
+    display: inline;
+}
+
+.luigimon-page .user-profile .pokedex-link {
+    margin-left: auto;
+    margin-right: -60px;
+}
+
+.luigimon-page .user-profile .pokedex-link a {
+    display: flex;
+    align-items: center;
+    color: white;
+    text-decoration: none;
+    box-shadow: none;
+    outline: 0;
+}
+
+.luigimon-page .user-profile .pokedex-link div {
+    position: relative;
+}
+
+.luigimon-page .user-profile .pokedex-link a:hover {
+    color: #3d8bfd;
+}
+
+.luigimon-page .user-profile .pokedex-link a img.hovered {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    visibility: hidden;
+}
+
+.luigimon-page .user-profile .pokedex-link a:hover img {
+    visibility: hidden;
+}
+
+.luigimon-page .user-profile .pokedex-link a:hover img.hovered {
+    visibility: visible;
 }

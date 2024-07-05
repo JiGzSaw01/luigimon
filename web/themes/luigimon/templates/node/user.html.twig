@@ -1,0 +1,57 @@
+{#
+/**
+ * @file
+ * Theme override to present all user data.
+ *
+ * This template is used when viewing a registered user's page,
+ * e.g., example.com/user/123. 123 being the user's ID.
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *   print a subset such as 'content.field_example'. Fields attached to a user
+ *   such as 'user_picture' are available as 'content.user_picture'.
+ * - attributes: HTML attributes for the container element.
+ * - user: A Drupal User entity.
+ *
+ * @see template_preprocess_user()
+ */
+#}
+<article{{attributes.addClass('profile')}}>
+	<div class="boxed-width">
+		<div class="user-profile">
+			<div class="user-image">
+				<div>
+					<img src="{{file_url(directory ~ '/images/user-profile.svg')}}" alt="user-profile-image"/>
+				</div>
+			</div>
+			<div class="user-details">
+				<div>
+					<div class="label-value">
+						<label class="text-uppercase">Username:</label>
+						<span>
+							{{user.name.0.value}}</span>
+					</div>
+					<div class="label-value">
+						<label class="text-uppercase">Email:</label>
+						<span>{{user.email}}</span>
+					</div>
+					<div class="label-value">
+						<label class="text-uppercase">Friend code:</label>
+						<span>
+            {{content.field_friend_code.0.value}}
+							{{content.field_friend_code}}</span>
+					</div>
+				</div>
+			</div>
+			<div class="pokedex-link">
+				<a class="my-pokedex-link" href="/pokemon-diary/{{user.id}}">
+					<h5 class="text-uppercase">My Pokédex</h5>
+					<div>
+						<img src="{{file_url(directory ~ '/images/pokemon-white.svg')}}" alt="pokedex"/>
+						<img class="hovered" src="{{file_url(directory ~ '/images/pokemon.svg')}}" alt="pokedex"/>
+					</div>
+				</a>
+			</div>
+		</div>
+	</div>
+</article>

@@ -18,7 +18,7 @@ mode: default
 content:
   field_friend_code:
     type: string
-    label: above
+    label: hidden
     settings:
       link_to_entity: false
     third_party_settings: {  }
