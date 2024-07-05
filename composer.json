@@ -24,7 +24,8 @@
         "drupal/gtm": "^1.8",
         "drupal/registration_role": "^2.0",
         "drupal/tagify": "^1.2",
-        "drupal/token": "^1.14"
+        "drupal/token": "^1.14",
+        "platformsh/config-reader": "^2.1"
     },
     "conflict": {
         "drupal/drupal": "*"
