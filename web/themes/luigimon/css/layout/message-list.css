@@ -8,6 +8,12 @@
     margin: 0 16px;
 }
 
+@media only screen and (min-width: 990px) {
+    .messages-list .messages-list__item.messages {
+        margin: 0 auto;
+    }
+}
+
 .messages-list .messages-list__item.messages .messages__header {
     margin-bottom: 8px;
 }

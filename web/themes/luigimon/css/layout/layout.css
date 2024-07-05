@@ -196,6 +196,16 @@ html body {
     display: none;
 }
 
+/* Share button display */
+
+.luigimon-page .btn-share {
+    display: none;
+}
+
+.path-pokemon-diary .luigimon-page .btn-share {
+    display: block;
+}
+
 /* Login/Sign up section styles */
 .luigimon-page .user-page form {
     width: 100%;
@@ -437,11 +447,7 @@ html body {
 .luigimon-page .user-profile img {
     width: 100px;
     height: 100px;
-}
-
-.luigimon-page .user-profile .user-details {
-    padding: 0 20px;
-    padding-left: 40px;
+    max-width: unset;
 }
 
 .luigimon-page .user-profile .user-details .label-value label {
@@ -507,9 +513,15 @@ html body {
         margin-top: 0;
     }
 
+    .luigimon-page .user-profile .user-details {
+        padding: 0 20px;
+        max-width: 300px;
+    }
+
     .luigimon-page .user-profile .pokedex-link {
         margin-left: auto;
         margin-right: -60px;
+        white-space: nowrap;
     }
 
     .luigimon-page .user-profile .user-details .label-value label {

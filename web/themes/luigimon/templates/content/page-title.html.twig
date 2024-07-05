@@ -18,11 +18,9 @@
 		{% if title %}
 			<h2{{title_attributes.addClass(['page-title','h1','logo-text'])}}>{{ title }}</h2>
 		{% endif %}
-		{% if is_pokemon_diary %}
-			<button class="btn btn-share p-1" data-toggle="tooltip" data-placement="bottom" title="Copied link to clipboard">
-				{{ source(directory ~ '/images/share.svg') }}
-			</button>
-		{% endif %}
+		<button class="btn btn-share p-1" data-toggle="tooltip" data-placement="bottom" title="Copied link to clipboard">
+			{{ source(directory ~ '/images/share.svg') }}
+		</button>
 	</div>
 </div>
 {{ title_suffix }}
