@@ -28,7 +28,7 @@ html {
 
 html body {
     background-color: #cfe2ff;
-    font-family: 'Broaek_Regular';
+    font-family: 'Astonpoliz';
     letter-spacing: 1px;
 }
 
@@ -420,6 +420,7 @@ html body {
     width: calc(100% - 60px);
     align-items: center;
     margin-bottom: 60px;
+    flex-direction: column;
 }
 
 .luigimon-page .user-profile .user-image div,
@@ -430,12 +431,12 @@ html body {
 }
 
 .luigimon-page .user-profile .user-image div {
-    margin-left: -60px;
+    margin-top: -60px;
 }
 
 .luigimon-page .user-profile img {
-    width: 150px;
-    height: 150px;
+    width: 100px;
+    height: 100px;
 }
 
 .luigimon-page .user-profile .user-details {
@@ -447,7 +448,6 @@ html body {
     color: #3d8bfd;
     font-weight: 700;
     line-height: 120%;
-    display: block;
 }
 
 .luigimon-page .user-profile .user-details .label-value span {
@@ -458,11 +458,6 @@ html body {
 
 .luigimon-page .user-profile .user-details .label-value span div {
     display: inline;
-}
-
-.luigimon-page .user-profile .pokedex-link {
-    margin-left: auto;
-    margin-right: -60px;
 }
 
 .luigimon-page .user-profile .pokedex-link a {
@@ -495,4 +490,29 @@ html body {
 
 .luigimon-page .user-profile .pokedex-link a:hover img.hovered {
     visibility: visible;
+}
+
+@media only screen and (min-width: 768px) {
+    .luigimon-page .user-profile {
+        flex-direction: row;
+    }
+
+    .luigimon-page .user-profile img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .luigimon-page .user-profile .user-image div {
+        margin-left: -60px;
+        margin-top: 0;
+    }
+
+    .luigimon-page .user-profile .pokedex-link {
+        margin-left: auto;
+        margin-right: -60px;
+    }
+
+    .luigimon-page .user-profile .user-details .label-value label {
+        display: block;
+    }
 }
