@@ -9,7 +9,7 @@ id: node.diary.field_pokestop
 field_name: field_pokestop
 entity_type: node
 bundle: diary
-label: 'Captured Location'
+label: 'Capture Location'
 description: ''
 required: true
 translatable: false

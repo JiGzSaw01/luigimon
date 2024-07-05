@@ -5,7 +5,7 @@ dependencies:
   config:
     - field.field.user.user.field_friend_code
     - field.field.user.user.user_picture
-    - image.style.medium
+    - image.style.thumbnail
   module:
     - image
     - user
@@ -18,7 +18,7 @@ mode: default
 content:
   field_friend_code:
     type: string
-    label: inline
+    label: above
     settings:
       link_to_entity: false
     third_party_settings: {  }
@@ -29,7 +29,7 @@ content:
     label: hidden
     settings:
       image_link: content
-      image_style: medium
+      image_style: thumbnail
       image_loading:
         attribute: lazy
     third_party_settings: {  }

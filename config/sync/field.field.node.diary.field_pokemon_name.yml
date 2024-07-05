@@ -9,7 +9,7 @@ id: node.diary.field_pokemon_name
 field_name: field_pokemon_name
 entity_type: node
 bundle: diary
-label: Pokemon
+label: 'Pokemon Name'
 description: ''
 required: true
 translatable: false
