@@ -1,7 +1,0 @@
-uuid: 24c328d4-4dc7-4988-9644-edb2e50b6dfa
-langcode: en
-status: true
-dependencies: {  }
-name: pokemon_thumbnail
-label: 'Pokemon Thumbnail (176x95)'
-effects: {  }
