@@ -1,0 +1,23 @@
+uuid: f2915a6c-1025-4568-a170-a15ec160f0e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pokemon_id
+    - node.type.diary
+id: node.diary.field_pokemon_id
+field_name: field_pokemon_id
+entity_type: node
+bundle: diary
+label: 'Pokemon ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer
