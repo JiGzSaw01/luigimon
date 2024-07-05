@@ -188,12 +188,13 @@ class PokeApiController extends ControllerBase {
     if (!$input) {
       return new JsonResponse([], 400);
     }
-    $input = strtolower($input);
 
+    $input = strtolower($input);
     $locations = $this->getLocations();
+    
     $matches = [];
     foreach($locations as $location) {
-      if (stripos($location['name'], $input) === 0) {
+      if (str_contains($location['name'], $input)) {
         $name = $this->formatLocation($location['name']);
         $matches[] = [
           'value' => $name,
