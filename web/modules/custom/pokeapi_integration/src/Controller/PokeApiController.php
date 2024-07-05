@@ -213,10 +213,10 @@ class PokeApiController extends ControllerBase {
       return $locations->data;
     }
     $response = $this->httpClient->request('GET', 'https://pokeapi.co/api/v2/location?limit=9999');
-    if (!$response || !$response['results']) {
+    $locations = json_decode($response->getBody()->getContents(), TRUE);
+    if (!$locations || !$locations['results']) {
       return [];
     }
-    $locations = json_decode($response->getBody()->getContents(), TRUE);
     \Drupal::cache()->set($cacheId, $locations['results'], Cache::PERMANENT);
     return $locations['results'];
   }
