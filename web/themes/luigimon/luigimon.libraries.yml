@@ -13,6 +13,7 @@ global:
   - core/drupal.dialog.ajax
   - core/drupal.autocomplete
   - core/once
+  - core/jquery
 bootstrap:
   css:
     theme:

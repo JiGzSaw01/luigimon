@@ -2,7 +2,7 @@
  * @file
  * Luigimon behaviors.
  */
-(function (Drupal) {
+(function ($, Drupal) {
 
   'use strict';
 
@@ -36,4 +36,4 @@
     }
   };
 
-}(Drupal));
+})(jQuery, Drupal);
