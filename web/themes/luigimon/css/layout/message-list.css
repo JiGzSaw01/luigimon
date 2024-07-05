@@ -5,12 +5,18 @@
     color: #0A3622;
     padding: 16px;
     max-width: 824px;
-    margin: 0 16px;
+    margin: 0 16px 16px;
+}
+
+.messages-list .messages-list__item.messages.messages--error {
+    color: #b02a37;
+    background-color: #F8D7DA;
+    border-color: #b02a37;
 }
 
 @media only screen and (min-width: 990px) {
     .messages-list .messages-list__item.messages {
-        margin: 0 auto;
+        margin: 0 auto 16px;
     }
 }
 
