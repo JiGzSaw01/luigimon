@@ -68,61 +68,87 @@ class PokeApiController extends ControllerBase {
     $input = $request->query->get('q');
 
     if ($input) {
-      $response = $this->httpClient->request('GET', 'https://pokeapi.co/api/v2/pokemon?limit=9999');
-      $data = json_decode($response->getBody()->getContents(), TRUE);
-      $this->logger->info('PokéAPI response: @response', ['@response' => print_r($data, TRUE)]);
-      
-      foreach ($data['results'] as $pokemon) {
-        if (stripos($pokemon['name'], $input) === 0) {
-          // Fetch detailed information for each matching Pokémon
-          $details_response = $this->httpClient->request('GET', $pokemon['url']);
-          $details = json_decode($details_response->getBody()->getContents(), TRUE);
-          $this->logger->info('Pokémon details: @details', ['@details' => print_r($details, TRUE)]);
+        $pokemonList = $this->getPokemonList();
+        $this->logger->info('PokéAPI cached list: @list', ['@list' => print_r($pokemonList, TRUE)]);
 
-          $typeString = "";
-          foreach($details['types'] as $typeKey => $type) {
-            $typeName = $type['type']['name'];
-            $terms = \Drupal::entityTypeManager()
-            ->getStorage('taxonomy_term')
-            ->loadByProperties([
-                'vid'  => 'type',
-                'name' => $typeName,
-            ]);
-            $typeTermId = reset(array_keys($terms));
-            if ($typeString) {
-              $typeString .= ', ';
-            }
-            $typeString .= $typeName . ' (' . $typeTermId . ')';
-          }
-          $typeString = trim($typeString);
-          
-          // Add the detailed information to matches
-          $id = (int)$details['id'];
-          $type = $details['types'][0]['type']['name'];
-          $pokemonName = ucfirst($pokemon['name']);
-          $terms = \Drupal::entityTypeManager()
-            ->getStorage('taxonomy_term')
-            ->loadByProperties([
+        $filtered_pokemon = array_filter($pokemonList, function($pokemon) use ($input) {
+            return stripos($pokemon['name'], $input) === 0;
+        });
+
+        // Limit the number of detailed requests
+        $max_results = 10;
+        $filtered_pokemon = array_slice($filtered_pokemon, 0, $max_results);
+
+        foreach ($filtered_pokemon as $pokemon) {
+            // Fetch detailed information for each matching Pokémon
+            $details_response = $this->httpClient->request('GET', $pokemon['url']);
+            $details = json_decode($details_response->getBody()->getContents(), TRUE);
+            $this->logger->info('Pokémon details: @details', ['@details' => print_r($details, TRUE)]);
+
+            $typeString = "";
+            foreach($details['types'] as $typeKey => $type) {
+                $typeName = $type['type']['name'];
+                $terms = \Drupal::entityTypeManager()
+                ->getStorage('taxonomy_term')
+                ->loadByProperties([
                     'vid'  => 'type',
-                    'name' => $type,
+                    'name' => $typeName,
                 ]);
-          $term = reset(array_keys($terms));
+                $typeTermId = reset(array_keys($terms));
+                if ($typeString) {
+                    $typeString .= ', ';
+                }
+                $typeString .= $typeName . ' (' . $typeTermId . ')';
+            }
+            $typeString = trim($typeString);
 
-          $matches[] = [
-            'value'     => $pokemonName,
-            'label'     => $pokemonName,
-            'type_ID'   => $term,
-            'type_name' => $type,
-            'img'       =>  $details['sprites']['other']['showdown']['front_default'],
-            'type_string' => $typeString,
-            'id' => $id
-          ];
+            // Add the detailed information to matches
+            $id = (int)$details['id'];
+            $type = $details['types'][0]['type']['name'];
+            $pokemonName = ucfirst($pokemon['name']);
+            $terms = \Drupal::entityTypeManager()
+                ->getStorage('taxonomy_term')
+                ->loadByProperties([
+                        'vid'  => 'type',
+                        'name' => $type,
+                    ]);
+            $term = reset(array_keys($terms));
+
+            $matches[] = [
+                'value'     => $pokemonName,
+                'label'     => $pokemonName,
+                'type_ID'   => $term,
+                'type_name' => $type,
+                'img'       => $details['sprites']['other']['showdown']['front_default'],
+                'type_string' => $typeString,
+                'id' => $id
+            ];
         }
       }
-    }
 
     $this->logger->info('Autocomplete matches: @matches', ['@matches' => print_r($matches, TRUE)]);
     return new JsonResponse($matches);
+  }
+
+
+  protected function getPokemonList() {
+    $cacheId = 'pokemon_list_cache';
+    $cache = \Drupal::cache();
+    $cached_data = $cache->get($cacheId);
+
+    if ($cached_data) {
+        return $cached_data->data;
+    }
+
+    $response = $this->httpClient->request('GET', 'https://pokeapi.co/api/v2/pokemon?limit=9999');
+    $data = json_decode($response->getBody()->getContents(), TRUE);
+
+    if (!$data || !$data['results']) {
+        return [];
+    }
+
+    $cache->set($cacheId, $data['results'], Cache::PERMANENT);
+    return $data['results'];
   }
 
   public function saveImage(Request $request) {
