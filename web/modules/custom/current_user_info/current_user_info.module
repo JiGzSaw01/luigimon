@@ -7,7 +7,13 @@ function current_user_info_theme($existing, $type, $theme, $path) {
         'name' => '',
         'picture_uri' => '',
         'current_user' => '',
-     ],
-   ],
-];
+      ],
+    ],
+  ];
+}
+
+function current_user_info_link_alter(&$variables) {
+  if ($variables['text'] == 'My account') {
+    $variables['text'] = t('My Profile');
+  }
 }
