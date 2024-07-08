@@ -16,11 +16,18 @@ This web application allows you to log your Pokémon captures and share your adv
 - Shareable URL: Every user receives a unique URL to display their Pokémon Diary. Feel free to share it with friends and fellow trainers!
   
 ## Screenshots
+### Sign up
+<img src="https://github.com/JiGzSaw01/luigimon/assets/62275751/60dfd0f4-94c2-460d-871a-7b5a68a87f5b" width="50%" height="50%"/>
+
 ### Login
 <img src="https://github.com/JiGzSaw01/luigimon/assets/62275751/49701ce3-8914-4cd6-81f8-bc78f6053cfd" width="50%" height="50%"/>
 
+### My Profile
+<img src="https://github.com/JiGzSaw01/luigimon/assets/62275751/e9b4da07-d190-49a4-a1e5-c176607de5f6" width="50%" height="50%"/>
+
 ### Pokémon Diary
 <img src="https://github.com/JiGzSaw01/luigimon/assets/62275751/27c675e0-f9c8-4506-8a72-21e25539dde9" width="50%" height="50%"/>
+
 
 ## Installation 
 
