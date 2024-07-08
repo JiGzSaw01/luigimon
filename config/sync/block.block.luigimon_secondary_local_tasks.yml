@@ -9,7 +9,7 @@ _core:
 id: luigimon_secondary_local_tasks
 theme: luigimon
 region: header
-weight: -2
+weight: -5
 provider: null
 plugin: local_tasks_block
 settings:

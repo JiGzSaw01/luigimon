@@ -11,7 +11,7 @@ _core:
 id: luigimon_powered
 theme: luigimon
 region: header
-weight: 0
+weight: -3
 provider: null
 plugin: system_powered_by_block
 settings:

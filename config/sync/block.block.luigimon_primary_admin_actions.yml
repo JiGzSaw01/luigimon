@@ -9,7 +9,7 @@ _core:
 id: luigimon_primary_admin_actions
 theme: luigimon
 region: header
-weight: -5
+weight: -7
 provider: null
 plugin: local_actions_block
 settings:

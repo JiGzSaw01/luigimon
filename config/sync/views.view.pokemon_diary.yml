@@ -105,24 +105,34 @@ display:
       cache:
         type: tag
         options: {  }
-      empty: {  }
-      sorts:
-        created:
-          id: created
-          table: node_field_data
-          field: created
+      empty:
+        entity_block_content:
+          id: entity_block_content
+          table: views
+          field: entity_block_content
           relationship: none
           group_type: group
           admin_label: ''
-          entity_type: node
-          entity_field: created
-          plugin_id: date
+          plugin_id: entity
+          empty: true
+          target: e3484d74-3971-4bee-8641-db49a121b831
+          view_mode: default
+          tokenize: true
+          bypass_access: true
+      sorts:
+        field_captured_date_value:
+          id: field_captured_date_value
+          table: node__field_captured_date
+          field: field_captured_date_value
+          relationship: none
+          group_type: group
+          admin_label: ''
+          plugin_id: standard
           order: DESC
           expose:
             label: ''
             field_identifier: ''
           exposed: false
-          granularity: second
       arguments:
         uid:
           id: uid

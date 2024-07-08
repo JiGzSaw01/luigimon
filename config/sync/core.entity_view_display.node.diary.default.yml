@@ -25,14 +25,14 @@ content:
     label: hidden
     settings: {  }
     third_party_settings: {  }
-    weight: 101
+    weight: 5
     region: content
   field_captured_date:
     type: timestamp
-    label: above
+    label: inline
     settings:
-      date_format: medium
-      custom_date_format: ''
+      date_format: custom
+      custom_date_format: 'F d, Y h:i'
       timezone: ''
       tooltip:
         date_format: long
@@ -43,28 +43,29 @@ content:
         past_format: '@interval ago'
         granularity: 2
         refresh: 60
+        description: ''
     third_party_settings: {  }
-    weight: 104
+    weight: 7
     region: content
   field_pokemon_id:
     type: number_integer
-    label: above
+    label: hidden
     settings:
       thousand_separator: ''
       prefix_suffix: true
     third_party_settings: {  }
-    weight: 107
+    weight: 2
     region: content
   field_pokemon_image:
     type: image
-    label: above
+    label: hidden
     settings:
       image_link: ''
       image_style: ''
       image_loading:
         attribute: lazy
     third_party_settings: {  }
-    weight: 106
+    weight: 1
     region: content
   field_pokemon_name:
     type: string
@@ -72,7 +73,7 @@ content:
     settings:
       link_to_entity: false
     third_party_settings: {  }
-    weight: 108
+    weight: 3
     region: content
   field_pokemon_type:
     type: entity_reference_entity_view
@@ -81,18 +82,18 @@ content:
       view_mode: pill
       link: false
     third_party_settings: {  }
-    weight: 105
+    weight: 4
     region: content
   field_pokestop:
     type: basic_string
-    label: above
+    label: inline
     settings: {  }
     third_party_settings: {  }
-    weight: 102
+    weight: 6
     region: content
   links:
     settings: {  }
     third_party_settings: {  }
-    weight: 100
+    weight: 0
     region: content
 hidden: {  }

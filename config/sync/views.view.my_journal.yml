@@ -331,7 +331,7 @@ display:
           plugin_id: text
           empty: true
           content:
-            value: 'Nothing here. Start catching now!'
+            value: 'Nothing to see here... or is there?'
             format: basic_html
           tokenize: false
       sorts:
