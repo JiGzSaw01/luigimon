@@ -52,6 +52,10 @@ final class CurrentUserInfoBlock extends BlockBase {
       '#name' => $current_user->getDisplayName(),
       '#current_user' => $current_user,
       '#picture_uri' => $current_user->user_picture->view('thumbnail'),
+      '#cache' => [
+        'contexts' => ['user'],
+        'tags' => ['user:' . \Drupal::currentUser()->id()],
+      ],
     ];
     return $build;
   }
