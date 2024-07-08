@@ -5,12 +5,14 @@ dependencies:
   config:
     - node.type.diary
   module:
+    - contextual
     - node
 id: trainer
 label: Trainer
 weight: 4
 is_admin: null
 permissions:
+  - 'access contextual links'
   - 'create diary content'
   - 'delete own diary content'
   - 'edit own diary content'

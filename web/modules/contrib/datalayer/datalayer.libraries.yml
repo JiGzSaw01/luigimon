@@ -1,0 +1,10 @@
+behaviors:
+  version: 1.x
+  js:
+    js/datalayer.js: {}
+  dependencies:
+    - core/drupalSettings
+    - core/drupal
+helper:
+  js:
+    /libraries/data-layer-helper/dist/data-layer-helper.js: {}
