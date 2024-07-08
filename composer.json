@@ -21,6 +21,7 @@
         "drupal/core-composer-scaffold": "^10.3",
         "drupal/core-project-message": "^10.3",
         "drupal/core-recommended": "^10.3",
+        "drupal/datalayer": "^2.0",
         "drupal/gtm": "^1.8",
         "drupal/registration_role": "^2.0",
         "drupal/tagify": "^1.2",

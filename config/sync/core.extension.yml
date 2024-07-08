@@ -15,6 +15,7 @@ module:
   contact: 0
   contextual: 0
   current_user_info: 0
+  datalayer: 0
   datetime: 0
   dblog: 0
   diary_modal: 0
