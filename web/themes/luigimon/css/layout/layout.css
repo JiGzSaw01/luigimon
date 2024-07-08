@@ -548,3 +548,8 @@ em.placeholder {
 .add-pokemon .ajax-progress--throbber {
     display: none;
 }
+
+.site-name a:focus {
+    outline: none;
+    box-shadow: none;
+}
