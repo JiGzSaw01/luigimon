@@ -115,7 +115,7 @@ display:
           admin_label: ''
           plugin_id: entity
           empty: true
-          target: e3484d74-3971-4bee-8641-db49a121b831
+          target: 1
           view_mode: default
           tokenize: true
           bypass_access: true
