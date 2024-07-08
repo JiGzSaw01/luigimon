@@ -1,0 +1,22 @@
+uuid: c2ec0bcb-69ac-4854-b01b-f97403d3c931
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - luigimon
+_core:
+  default_config_hash: BZ5tpW7H8X4PVGRm3MImTIHd2tN0eF7zOtp4SpRYUA0
+id: luigimon_messages
+theme: luigimon
+region: content
+weight: -8
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  label_display: '0'
+  provider: system
+visibility: {  }

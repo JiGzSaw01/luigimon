@@ -20,7 +20,7 @@ This web application allows you to log your Pokémon captures and share your adv
 <img src="https://github.com/JiGzSaw01/luigimon/assets/62275751/49701ce3-8914-4cd6-81f8-bc78f6053cfd" width="50%" height="50%"/>
 
 ### Pokémon Diary
-<img src="https://github.com/JiGzSaw01/luigimon/assets/62275751/786b7d3a-dd84-4c14-81b4-6befe211eb3b" width="50%" height="50%"/>
+<img src="https://github.com/JiGzSaw01/luigimon/assets/62275751/27c675e0-f9c8-4506-8a72-21e25539dde9" width="50%" height="50%"/>
 
 ## Installation 
 

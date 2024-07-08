@@ -40,33 +40,36 @@ class MyPokedexEventSubscriber implements EventSubscriberInterface
       if ($route->getRouteName() == 'view.pokemon_diary.page_1') {
         // Get current user.
         $current_user = \Drupal::currentUser();
-        if ($current_user->id()) {
           // Get the current context parameters.
           $context_user_id = $route->getParameter('arg_0');
+          // pokemon-diary/ no user id
           if (empty($context_user_id) && $context_user_id !== '0') {
-            // Build the new URL with parameters.
-            $new_url = $request->getBaseUrl() . $request->getPathInfo() . '/' . $current_user->id();
+            // use current signed in user id
+            if($current_user->id()){
+              // Build the new URL with parameters.
+              $new_url = $request->getBaseUrl() . $request->getPathInfo() . '/' . $current_user->id();
 
-            // Create a redirect response to the new URL.
-            $response = new RedirectResponse($new_url);
+              // Create a redirect response to the new URL.
+              $response = new RedirectResponse($new_url);
 
-            // Set the response and stop further processing.
-            $event->setResponse($response);
+              // Set the response and stop further processing.
+              $event->setResponse($response);
+            }
+            else { // no user-id - redirect to sign in
+              $response = new RedirectResponse($request->getBaseUrl() . '/user/login', 301);
+              $event->setResponse($response);
+            }
           } else {
             $user = \Drupal\user\Entity\User::load($context_user_id);
             // Check if the user entity exists and is active.
             if ($user && $user->isActive()) {
-              
+              // proceed as normal
             }
             else {
               $response = new RedirectResponse($request->getBaseUrl() . '/404', 301);
               $event->setResponse($response);              
             }
           }
-        } else {
-          $response = new RedirectResponse($request->getBaseUrl() . '/user/login', 301);
-          $event->setResponse($response);
-        }
       }
     }
   }

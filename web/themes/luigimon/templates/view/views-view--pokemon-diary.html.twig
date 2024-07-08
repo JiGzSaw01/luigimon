@@ -56,17 +56,12 @@
 			{{ attachment_before }}
 		</div>
 	{% endif %}
-
-	{% if rows is empty %}
-		<div class="view-empty">
-			{{ empty }}
-		</div>
-	{% endif %}
-
 	<div class="view-content cards-container">
 		{{ rows }}
     {% if diaryModal %}
       {{ diaryModal }}
+	  {% elseif empty %}
+	{{ empty }}
     {% endif %}
 	</div>
 

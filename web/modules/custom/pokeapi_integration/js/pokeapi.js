@@ -1,6 +1,7 @@
 (function ($, Drupal) {
   Drupal.behaviors.pokemonAutocomplete = {
     attach: function (context, settings) {
+      this.addLocationAutoComplete(context, settings);
       $('input[name="field_pokemon_name[0][value]"]', context).autocomplete({
         source: function (request, response) {
          
@@ -118,6 +119,29 @@
           }
 
         }
+      });
+    },
+
+    addLocationAutoComplete: function (context, settings) {
+      $('textarea[name="field_pokestop[0][value]', context).autocomplete({
+        source: function( request, response ) {
+          $.ajax( {
+            url: "/pokeapi/location-autocomplete",
+            dataType: "json",
+            data: {
+              q: request.term
+            },
+            success: function (data) {
+              response(data.map(function (item) {
+                return {
+                  label: item.label,
+                  value: item.value
+                };
+              }));
+            }
+          });
+        },
+        minLength: 2
       });
     }
   };

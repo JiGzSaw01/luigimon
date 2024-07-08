@@ -1,0 +1,29 @@
+uuid: 10acd5ab-7688-4f5d-97b7-51fbef85b10e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_pokemon_type
+    - node.type.diary
+    - taxonomy.vocabulary.type
+id: node.diary.field_pokemon_type
+field_name: field_pokemon_type
+entity_type: node
+bundle: diary
+label: 'Pokemon Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      type: type
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

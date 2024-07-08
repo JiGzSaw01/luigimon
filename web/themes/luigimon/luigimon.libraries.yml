@@ -6,6 +6,7 @@ global:
     layout:
       css/layout/layout.css: {}
       css/layout/dialog.css: {}
+      css/layout/message-list.css: {}
     theme:
       css/fonts/fonts.css: {}
   dependencies:
@@ -13,6 +14,7 @@ global:
   - core/drupal.dialog.ajax
   - core/drupal.autocomplete
   - core/once
+  - core/jquery
 bootstrap:
   css:
     theme:

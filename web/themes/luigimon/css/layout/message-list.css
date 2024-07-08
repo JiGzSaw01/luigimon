@@ -1,0 +1,43 @@
+.messages-list .messages-list__item.messages {
+    border-radius: 6px;
+    border: 1px solid var(--Green-300, #75B798);
+    background: var(--Green-100, #D1E7DD);
+    color: #0A3622;
+    padding: 16px;
+    max-width: 824px;
+    margin: 0 16px 16px;
+}
+
+.messages-list .messages-list__item.messages.messages--error {
+    color: #b02a37;
+    background-color: #F8D7DA;
+    border-color: #b02a37;
+}
+
+@media only screen and (min-width: 990px) {
+    .messages-list .messages-list__item.messages {
+        margin: 0 auto 16px;
+    }
+}
+
+.messages-list .messages-list__item.messages .messages__header {
+    margin-bottom: 8px;
+}
+
+.messages-list .messages-list__item.messages .messages__title,
+.messages-list .messages-list__item.messages .messages__content {
+    margin-left: 30px;
+}
+
+.messages-list .messages-list__item.messages .messages__content .placeholder {
+    background-color: transparent;
+    font-weight: 600;
+    opacity: 1;
+    vertical-align: baseline;
+    pointer-events: none;
+}
+
+.messages-list .messages-list__item.messages .messages__content .placeholder a {
+    color: #0A3622;
+    text-decoration: none;
+}

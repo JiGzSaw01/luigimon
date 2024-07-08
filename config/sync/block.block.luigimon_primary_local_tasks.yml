@@ -1,0 +1,32 @@
+uuid: 9a43add8-8863-4c52-9bad-343382150417
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_class
+    - system
+  theme:
+    - luigimon
+third_party_settings:
+  block_class:
+    classes: boxed-width
+_core:
+  default_config_hash: nGE3EoPQQaQCuqTUtZgw0-KIzmrqdKDzdNQf2JyPUt4
+id: luigimon_primary_local_tasks
+theme: luigimon
+region: header
+weight: -6
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: 'Primary tabs'
+  label_display: '0'
+  provider: core
+  primary: true
+  secondary: false
+visibility:
+  request_path:
+    id: request_path
+    negate: true
+    pages: '/user/*'
