@@ -51,6 +51,11 @@ function diary_modal_form_node_diary_form_alter(&$form, \Drupal\Core\Form\FormSt
 
 }
 
+function diary_modal_form_node_diary_edit_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id): void
+{
+    $form['advanced']['#access'] = FALSE;
+}
+
 /**
  * Submit callback function to redirect to a view after submitting the node form.
  */

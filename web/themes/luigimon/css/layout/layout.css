@@ -299,7 +299,7 @@ html body {
 .luigimon-page .page-content .cards-container {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: left;
 }
 
 .luigimon-page .page-content .cards-container>div {
@@ -357,11 +357,16 @@ html body {
     font-weight: 300;
 }
 
-.luigimon-page .page-content .card .card-label-value label {
+.luigimon-page .page-content .card .card-label-value label{
     font-size: 9px;
     color: #3d8bfd;
     font-weight: 700;
     display: block;
+}
+
+.luigimon-page .page-content .card .pokemon-nickname {
+    color: #aab8c2;
+    font-size: 12px;
 }
 
 .luigimon-page .page-content .card .card-label-value span {
@@ -527,4 +532,19 @@ html body {
     .luigimon-page .user-profile .user-details .label-value label {
         display: block;
     }
+}
+
+.node-diary-edit-form .form-item__label, .node-diary-delete-form {color:var(--input-fg-color--description)}
+
+ul.tabs.tabs--primary.clearfix {
+    padding-left: 0px;
+}
+
+em.placeholder {
+    background-color: unset;
+    opacity: 1;
+}
+
+.add-pokemon .ajax-progress--throbber {
+    display: none;
 }
