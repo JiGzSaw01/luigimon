@@ -534,7 +534,11 @@ html body {
     }
 }
 
-.node-diary-edit-form .form-item__label, .node-diary-delete-form {color:var(--input-fg-color--description)}
+.node-diary-edit-form .form-item__label, 
+.node-diary-delete-form,
+.user-form form-item__label {
+    color:var(--input-fg-color--description)
+}
 
 ul.tabs.tabs--primary.clearfix {
     padding-left: 0px;
